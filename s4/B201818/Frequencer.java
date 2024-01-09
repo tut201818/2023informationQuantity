@@ -68,7 +68,7 @@ public class Frequencer implements FrequencerInterface {
 	if(start>myTarget.length-1 || length>myTarget.length-1 || start>length){//正しくない因数の場合はreturn -1
         	return -1;
 	}
-	List<byte> list = new ArrayList<>();//リストを作る
+	List<byte> list = new ArrayList<byte>();//リストを作る
 	for(int i=start;i<length;i++){//作ったリストに切り出すべきところを入れていく
 		 list.add(myTarget[i]);
 	}
