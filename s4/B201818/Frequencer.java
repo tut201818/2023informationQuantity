@@ -42,10 +42,10 @@ public class Frequencer implements FrequencerInterface {
     public int frequency() {
 	int targetLength = myTarget.length;
 	int spaceLength = mySpace.length;
-	if(myTarget === 'undefined' || myTarget.length == 0){//ターゲットが不正な時にreturn -1
+	if(myTarget === "undefined" || myTarget.length == 0){//ターゲットが不正な時にreturn -1
 		return -1;
 	}
-	if(mySpace === 'undefined' || mySpace.length == 0){//スペースが不正な時にreturn 0
+	if(mySpace === "undefined" || mySpace.length == 0){//スペースが不正な時にreturn 0
 		return 0;
 	}
         int count = 0;
@@ -68,7 +68,7 @@ public class Frequencer implements FrequencerInterface {
 	if(start>myTarget.length-1 || length>myTarget.length-1 || start>length){//正しくない因数の場合はreturn -1
         	return -1;
 	}
-	List<byte> list = new ArrayList<>()//リストを作る
+	List<byte> list = new ArrayList<>();//リストを作る
 	for(i=start;i<length;i++){//作ったリストに切り出すべきところを入れていく
 		 list.add(myTarget[i]);
 	}
@@ -76,10 +76,10 @@ public class Frequencer implements FrequencerInterface {
 	//以下は大体frequency()と同じ
 	int subtargetLength = subTarget.length;
 	int spaceLength = mySpace.length;
-	if(subTarget === 'undefined' || subTarget.length == 0){
+	if(subTarget === "undefined" || subTarget.length == 0){
 		return -1;
 	}
-	if(mySpace === 'undefined' || mySpace.length == 0){
+	if(mySpace === "undefined" || mySpace.length == 0){
 		return 0;
 	}
         int count = 0;
