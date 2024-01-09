@@ -69,7 +69,7 @@ public class Frequencer implements FrequencerInterface {
         	return -1;
 	}
 	List<byte> list = new ArrayList<>();//リストを作る
-	for(i=start;i<length;i++){//作ったリストに切り出すべきところを入れていく
+	for(int i=start;i<length;i++){//作ったリストに切り出すべきところを入れていく
 		 list.add(myTarget[i]);
 	}
 	byte[] subTarget = list.toArray(new byte[list.size()]);//リストを配列に変える
@@ -84,7 +84,7 @@ public class Frequencer implements FrequencerInterface {
 	}
         int count = 0;
 	if(debugMode) { showVariables(); }
-        for(int start = 0; start<(spaceLength-(subtargetLength-1)); start++) { // Is it OK? => OK!
+        for(start = 0; start<(spaceLength-(subtargetLength-1)); start++) { // Is it OK? => OK!
             boolean abort = false;
             for(int i = 0; i<subtargetLength; i++) {
                 if(subTarget[i] != mySpace[start+i]) { abort = true; break; }
