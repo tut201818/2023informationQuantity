@@ -71,13 +71,13 @@ public class Frequencer implements FrequencerInterface {
 	int targetLength = myTarget.length;
 	int spaceLength = mySpace.length;
 	if(myTarget.length == 0){//ターゲットが不正な時にreturn -1
-		return -1;
+                return -1;
 	}
 	if(mySpace.length == 0){//スペースが不正な時にreturn 0
-		return 0;
+	        return 0;
 	}
         int count = 0;
-	if(debugMode) { showVariables(); }
+        if(debugMode) { showVariables(); }
         for(start = 0; start<(spaceLength-(targetLength-1)); start++) { //spaceの開始地点を進める
             boolean abort = false;
             for(int i = start; i<end; i++) {//開始地点からターゲットと一致しているか一文字ずつ調べる。
@@ -85,21 +85,21 @@ public class Frequencer implements FrequencerInterface {
             }
             if(abort == false) { count++; }//全文字一致だった時にカウント
         }
-	if(debugMode) { System.out.printf("%10d\n", count); }
+        if(debugMode) { System.out.printf("%10d\n", count); }
         return count;
     }
 
     public static void main(String[] args) {
         Frequencer myObject;
         int freq;
-	// White box test, here.
-	debugMode = true;
+        // White box test, here.
+        debugMode = true;
         try {
-		myObject = new Frequencer();
-		myObject.setSpace("Hi Ho Hi Ho".getBytes());//探される文をセット
-		myObject.setTarget("H".getBytes());//探す単語をセット
-		freq = myObject.frequency();
-	}
+                myObject = new Frequencer();
+                myObject.setSpace("Hi Ho Hi Ho".getBytes());//探される文をセット
+                myObject.setTarget("H".getBytes());//探す単語をセット
+                freq = myObject.frequency();
+        }
         catch(Exception e) {
             System.out.println("Exception occurred: STOP");
         }
