@@ -65,7 +65,7 @@ public class Frequencer implements FrequencerInterface {
     @Override
     public int subByteFrequency(int start, int end) {
         // Not yet implemented, but it should be defined as specified.
-	if(start>myTarget.length-1 || length>myTarget.length-1 || start>length){//正しくない因数の場合はreturn -1
+	if(start>myTarget.length-1 || end>myTarget.length-1 || start>end){//正しくない因数の場合はreturn -1
         	return -1;
 	}
 	int targetLength = myTarget.length;
@@ -78,7 +78,7 @@ public class Frequencer implements FrequencerInterface {
 	}
         int count = 0;
 	if(debugMode) { showVariables(); }
-        for(int start = 0; start<(spaceLength-(targetLength-1)); start++) { //spaceの開始地点を進める
+        for(start = 0; start<(spaceLength-(targetLength-1)); start++) { //spaceの開始地点を進める
             boolean abort = false;
             for(int i = start; i<end; i++) {//開始地点からターゲットと一致しているか一文字ずつ調べる。
                 if(myTarget[i] != mySpace[start+i]) { abort = true; break; }//一文字でも一致していなければbreak
@@ -97,9 +97,8 @@ public class Frequencer implements FrequencerInterface {
         try {
             myObject = new Frequencer();
             myObject.setSpace("Hi Ho Hi Ho".getBytes());//探される文をセット
-            myObject.setTarget("Hi".getBytes());//探す単語をセット
+            myObject.setTarget("H".getBytes());//探す単語をセット
             freq = myObject.frequency();
-	    freq2 = myObject.subByteFrequency(0,1);
         }
         catch(Exception e) {
             System.out.println("Exception occurred: STOP");
