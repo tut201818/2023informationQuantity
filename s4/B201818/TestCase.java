@@ -72,10 +72,10 @@ public class TestCase {
 	    myObject.setTarget("Hi".getBytes());
 	    freq = myObject.subByteFrequency(0, 1);
 	    assert freq == 2 : "'Hi Ho Hi Ho' の中で 'Hi' の subByteFrequency は start=0 かつ end=1 の場合に2を返すべきですが、返り値は " + freq;
-	　　
+            
 	    //例外発生のテスト
-	　　myObject.setSpace("Hi Ho Hi Ho".getBytes());
-	　　myObject.setTarget("Hello".getBytes());
+            myObject.setSpace("Hi Ho Hi Ho".getBytes());
+            myObject.setTarget("Hello".getBytes());
 	    freq = myObject.frequency();
 	    assert false : "Target length is greater than space length, but no exception was thrown";
 	} catch (ArrayIndexOutOfBoundsException e) {
