@@ -202,7 +202,10 @@ public class Frequencer implements FrequencerInterface {
             for(int j = 0; j<(end-start); j++) {//開始地点からターゲットと一致しているか一文字ずつ調べる。
                 if(myTarget[start+j] != mySpace[suffixArray[i]+j]) { abort = true; break; }//一文字でも一致していなければbreak
             }
-            if(abort == false) { return i; }//全文字一致だった時にカウント
+            if(abort == false) { 
+		return i;
+		System.out.printf("first=%2d",i);
+	    }//全文字一致だった時にカウント
         }
         return -1;
     }
@@ -239,7 +242,10 @@ public class Frequencer implements FrequencerInterface {
             for(int j = 0; j<(end-start); j++) {//開始地点からターゲットと一致しているか一文字ずつ調べる。
                 if(myTarget[start+j] != mySpace[suffixArray[i]+j]) { abort = false; break; }//一文字でも一致していなければbreak
             }
-            if(abort == false) { return i; }//不一致だった時にリターン
+            if(abort == false) { 
+		return i;
+	    	System.out.printf("end=%2d",i);
+	    }//不一致だった時にリターン
         }                           
         return 0;
     }
