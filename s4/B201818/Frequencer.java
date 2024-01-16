@@ -97,8 +97,8 @@ public class Frequencer implements FrequencerInterface {
         try {
             myObject = new Frequencer();
             myObject.setSpace("Hi Ho Hi Ho".getBytes());//探される文をセット
-            myObject.setTarget("H".getBytes());//探す単語をセット
-            freq = myObject.frequency();
+	    myObject.setTarget("H".getBytes());//探す単語をセット
+	    freq = myObject.frequency();
         }
         catch(Exception e) {
             System.out.println("Exception occurred: STOP");
