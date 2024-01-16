@@ -206,6 +206,7 @@ public class Frequencer implements FrequencerInterface {
 		System.out.printf("suffixArray[]=%2d:",i);
 		return i;
 	    }//全文字一致だった時にカウント
+	    System.out.printf("不一致:i,j = %2d,%2d ",i,j);
         }
         return -1;
     }
