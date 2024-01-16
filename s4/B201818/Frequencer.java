@@ -23,9 +23,8 @@ public class Frequencer implements FrequencerInterface {
     byte[] mySpace;
     int []  suffixArray;
 
-    @Override
     private void printSuffixArray() {
-        if(spaceReady) {
+        if(mySpace.length != 0) {
             for(int i=0; i< mySpace.length; i++) {
                 int s = suffixArray[i];
                 System.out.printf("suffixArray[%2d]=%2d:", i, s);
@@ -54,7 +53,7 @@ public class Frequencer implements FrequencerInterface {
 	for(int r = 0;r<(space.length-1);r++){
    	     for(int i = (space.length-1);i>r;i--){//バブルソート
 			if(suffixCompare(suffixArray[i],suffixArray[i-1]) == -1){
-				a = suffixArray[i];
+				int a = suffixArray[i];
 				suffixArray[i] = suffixArray[i-1];
 				suffixArray[i-1] = a;
 			}
@@ -62,7 +61,6 @@ public class Frequencer implements FrequencerInterface {
 	}
     }
 
-    @Override
     private int suffixCompare(int i, int j) {
         // suffixCompareはソートのための比較メソッドである。
         // 次のように定義せよ。
