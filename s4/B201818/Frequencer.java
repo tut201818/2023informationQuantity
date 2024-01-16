@@ -145,7 +145,6 @@ public class Frequencer implements FrequencerInterface {
 	if(s>myTarget.length-1 || e>myTarget.length-1 || s>e){//正しくない引数の場合はreturn -1
         	return -1;
 	}
-	//以下は動作の遅いプログラム
 	/*int targetLength = myTarget.length;
 	int spaceLength = mySpace.length;
 	if(myTarget.length == 0){//ターゲットが不正な時にreturn -1
@@ -167,7 +166,7 @@ public class Frequencer implements FrequencerInterface {
         return count;*/
 
 	int first = subByteStartIndex(s, e);
-        int last1 = subByteEndIndex(s, e);
+        int last1 = subByteEndIndex(first, e);
         return last1 - first;
     }
 
@@ -197,11 +196,15 @@ public class Frequencer implements FrequencerInterface {
         // Assuming the suffix array is created from "Hi Ho Hi Ho",                 
         // if target_start_end is "Ho", it will return 5.                           
         // Assuming the suffix array is created from "Hi Ho Hi Ho",                 
-        // if target_start_end is "Ho ", it will return 6.                
-        //                                                                          
-        // ここにコードを記述せよ。                                                 
-        //                                                                         
-        return suffixArray.length; //このコードは変更しなければならない。          
+        // if target_start_end is "Ho ", it will return 6. 
+	boolean abort = false;
+	for (int i = 0;i<mySpace.length;i++){
+            for(int j = 0; j<(end-start); j++) {//開始地点からターゲットと一致しているか一文字ずつ調べる。
+                if(myTarget[start+j] != mySpace[suffixArray[i]+j]) { abort = true; break; }//一文字でも一致していなければbreak
+            }
+            if(abort == false) { return i; }//全文字一致だった時にカウント
+        }
+        return -1;
     }
 
     private int subByteEndIndex(int start, int end) {
@@ -231,9 +234,14 @@ public class Frequencer implements FrequencerInterface {
         // Assuming the suffix array is created from "Hi Ho Hi Ho",          
         // if target_start_end is"i", it will return 9 for "Hi Ho Hi Ho".    
         //                                                                   
-        //　ここにコードを記述せよ                                           
-        //                                                                   
-        return suffixArray.length; // この行は変更しなければならない、
+	boolean abort = true;
+	for (int i = 0;i<mySpace.length;i++){
+            for(int j = 0; j<(end-start); j++) {//開始地点からターゲットと一致しているか一文字ずつ調べる。
+                if(myTarget[start+j] != mySpace[suffixArray[i]+j]) { abort = false; break; }//一文字でも一致していなければbreak
+            }
+            if(abort == false) { return i; }//不一致だった時にリターン
+        }                           
+        return 0;
     }
 
     public static void main(String[] args) {
