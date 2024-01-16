@@ -166,7 +166,7 @@ public class Frequencer implements FrequencerInterface {
         return count;*/
 
 	int first = subByteStartIndex(s, e);
-        int last1 = subByteEndIndex(first, e);
+        int last1 = subByteEndIndex(s, e);
         return last1 - first;
     }
 
@@ -203,6 +203,7 @@ public class Frequencer implements FrequencerInterface {
                 if(myTarget[start+j] != mySpace[suffixArray[i]+j]) { abort = true; break; }//一文字でも一致していなければbreak
             }
             if(abort == false) { 
+		System.out.printf("suffixArray[]=%2d:",i);
 		return i;
 	    }//全文字一致だった時にカウント
         }
@@ -259,7 +260,7 @@ public class Frequencer implements FrequencerInterface {
                 myObject.setTarget("H".getBytes());//探す単語をセット
                 freq = myObject.frequency();
 
-		myObject = new Frequencer();
+		/*myObject = new Frequencer();
                 myObject.setSpace("ABC".getBytes());
                 myObject.printSuffixArray();
                 myObject = new Frequencer();
@@ -271,7 +272,7 @@ public class Frequencer implements FrequencerInterface {
                 myObject = new Frequencer();
                 myObject.setSpace("Hi Ho Hi Ho".getBytes());
                 myObject.printSuffixArray();
-		
+		*/
         }
         catch(Exception e) {
             System.out.println("Exception occurred: STOP");
