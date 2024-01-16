@@ -170,8 +170,8 @@ public class Frequencer implements FrequencerInterface {
         return last1 - first;
     }
 
-　　private int subByteStartIndex(int start, int end) {
-        //suffix arrayのなかで、目的の文字列の出現が始まる位置を求めるメソッド
+    private int subByteStartIndex(int start, int end) {
+	//suffix arrayのなかで、目的の文字列の出現が始まる位置を求めるメソッド
         // 以下のように定義せよ。
         // The meaning of start and end is the same as subByteFrequency.
         /* Example of suffix created from "Hi Ho Hi Ho"
@@ -232,8 +232,8 @@ public class Frequencer implements FrequencerInterface {
         //                                                                   
         //　ここにコードを記述せよ                                           
         //                                                                   
-        return suffixArray.length; // この行は変更しなければならない、       
-    }　　
+        return suffixArray.length; // この行は変更しなければならない、
+    }
 
     public static void main(String[] args) {
         Frequencer myObject;
