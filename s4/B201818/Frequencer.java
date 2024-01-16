@@ -249,12 +249,12 @@ public class Frequencer implements FrequencerInterface {
                 myObject = new Frequencer();
                 myObject.setSpace("CBA".getBytes());
                 myObject.printSuffixArray();
-                frequencerObject = new Frequencer();
-                frequencerObject.setSpace("HHH".getBytes());
-                 frequencerObject.printSuffixArray();
-                frequencerObject = new Frequencer();
-                frequencerObject.setSpace("Hi Ho Hi Ho".getBytes());
-                frequencerObject.printSuffixArray();
+                myObject = new Frequencer();
+                myObject.setSpace("HHH".getBytes());
+                myObject.printSuffixArray();
+                myObject = new Frequencer();
+                myObject.setSpace("Hi Ho Hi Ho".getBytes());
+                myObject.printSuffixArray();
         }
         catch(Exception e) {
             System.out.println("Exception occurred: STOP");
