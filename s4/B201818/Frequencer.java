@@ -197,7 +197,7 @@ public class Frequencer implements FrequencerInterface {
         // if target_start_end is "Ho", it will return 5.                           
         // Assuming the suffix array is created from "Hi Ho Hi Ho",                 
         // if target_start_end is "Ho ", it will return 6. 
-	int i,j
+	int i,j;
 	for (i = 0;i<mySpace.length;i++){
 	    boolean abort = false;
             for(j = 0; j<(end-start); j++) {//開始地点からターゲットと一致しているか一文字ずつ調べる。
