@@ -204,6 +204,7 @@ public class Frequencer implements FrequencerInterface {
             }
             if(abort == false) { 
 		System.out.printf("first=%2d",i);
+		System.out.write('\n');
 		return i;
 	    }//全文字一致だった時にカウント
         }
@@ -244,6 +245,7 @@ public class Frequencer implements FrequencerInterface {
             }
             if(abort == false) { 
 		System.out.printf("end=%2d",i);
+		System.out.write('\n');
 		return i;
 	    }//不一致だった時にリターン
         }                           
