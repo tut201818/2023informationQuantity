@@ -63,9 +63,9 @@ public class Frequencer implements FrequencerInterface {
 
     // I know that here is a potential problem in the declaration.
     @Override
-    public int subByteFrequency(int start, int end) {
+    public int subByteFrequency(int s, int e) {
         // Not yet implemented, but it should be defined as specified.
-	if(start>myTarget.length-1 || end>myTarget.length-1 || start>end){//正しくない因数の場合はreturn -1
+	if(s>myTarget.length-1 || e>myTarget.length-1 || s>e){//正しくない因数の場合はreturn -1
         	return -1;
 	}
 	int targetLength = myTarget.length;
@@ -77,15 +77,15 @@ public class Frequencer implements FrequencerInterface {
 	        return 0;
 	}
         int count = 0;
-        if(debugMode) { showVariables(); }
-        for(start = 0; start<(spaceLength-(targetLength-1)); start++) { //spaceの開始地点を進める
+	if(debugMode) { showVariables(); }
+        for(int start = 0; start<(spaceLength-(targetLength-1)); start++) { //spaceの開始地点を進める
             boolean abort = false;
-            for(int i = start; i<end; i++) {//開始地点からターゲットと一致しているか一文字ずつ調べる。
-                if(myTarget[i] != mySpace[start+i]) { abort = true; break; }//一文字でも一致していなければbreak
+            for(int i = 0; i<(e-s); i++) {//開始地点からターゲットと一致しているか一文字ずつ調べる。
+                if(myTarget[i+s] != mySpace[start+i]) { abort = true; break; }//一文字でも一致していなければbreak
             }
             if(abort == false) { count++; }//全文字一致だった時にカウント
         }
-        if(debugMode) { System.out.printf("%10d\n", count); }
+	if(debugMode) { System.out.printf("%10d\n", count); }
         return count;
     }
 
