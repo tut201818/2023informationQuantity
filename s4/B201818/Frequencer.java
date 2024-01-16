@@ -203,8 +203,8 @@ public class Frequencer implements FrequencerInterface {
                 if(myTarget[start+j] != mySpace[suffixArray[i]+j]) { abort = true; break; }//一文字でも一致していなければbreak
             }
             if(abort == false) { 
-		return i;
 		System.out.printf("first=%2d",i);
+		return i;
 	    }//全文字一致だった時にカウント
         }
         return -1;
@@ -243,8 +243,8 @@ public class Frequencer implements FrequencerInterface {
                 if(myTarget[start+j] != mySpace[suffixArray[i]+j]) { abort = false; break; }//一文字でも一致していなければbreak
             }
             if(abort == false) { 
+		System.out.printf("end=%2d",i);
 		return i;
-	    	System.out.printf("end=%2d",i);
 	    }//不一致だった時にリターン
         }                           
         return 0;
