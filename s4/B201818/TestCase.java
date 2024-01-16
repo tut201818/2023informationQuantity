@@ -68,11 +68,11 @@ public class TestCase {
 	    freq = myObject.frequency();
 	    assert freq == 0 : "スペースに存在しないターゲットは0を返すべきですが、返り値は " + freq;
 
-	    // subByteFrequency メソッドのテスト
+	    // subByteFrequency メソッドのテスト (0,1)を(1,2)に変更
 	    myObject.setTarget("Hi".getBytes());
-	    freq = myObject.subByteFrequency(0, 1);
-	    assert freq == 2 : "'Hi Ho Hi Ho' の中で 'Hi' の subByteFrequency は start=0 かつ end=1 の場合に2を返すべきですが、返り値は " + freq;
-            
+	    freq = myObject.subByteFrequency(1, 2);
+	    assert freq == 2 : "'Hi Ho Hi Ho' の中で 'Hi' の subByteFrequency は start=1 かつ end=2 の場合に2を返すべきですが、返り値は " + freq;
+
 	    //例外発生のテスト
             myObject.setSpace("Hi Ho Hi Ho".getBytes());
             myObject.setTarget("Hello".getBytes());
