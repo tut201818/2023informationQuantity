@@ -102,6 +102,7 @@ public class Frequencer implements FrequencerInterface {
 			return -1;
 		}
 	}
+	return 0;
     }
 	
     private void showVariables() {
