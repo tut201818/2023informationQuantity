@@ -122,6 +122,7 @@ public class Frequencer implements FrequencerInterface {
 	if(mySpace.length == 0){//スペースが不正な時にreturn 0
 		return 0;
 	}
+	/*
         int count = 0;
 	if(debugMode) { showVariables(); }
         for(int start = 0; start<(spaceLength-(targetLength-1)); start++) { //spaceの開始地点を進める
@@ -133,6 +134,8 @@ public class Frequencer implements FrequencerInterface {
         }
 	if(debugMode) { System.out.printf("%10d\n", count); }
         return count;
+	*/
+	return subByteFrequency(0, myTarget.length);
     }
 
     // I know that here is a potential problem in the declaration.
