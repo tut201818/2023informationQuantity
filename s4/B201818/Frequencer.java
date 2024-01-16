@@ -60,7 +60,6 @@ public class Frequencer implements FrequencerInterface {
 			}
 		}
 	}
-	}
     }
 
     @Override
