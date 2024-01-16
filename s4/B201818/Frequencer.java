@@ -23,6 +23,7 @@ public class Frequencer implements FrequencerInterface {
     byte[] mySpace;
     int []  suffixArray;
 
+    @Override
     private void printSuffixArray() {
         if(spaceReady) {
             for(int i=0; i< mySpace.length; i++) {
@@ -62,6 +63,7 @@ public class Frequencer implements FrequencerInterface {
 	}
     }
 
+    @Override
     private int suffixCompare(int i, int j) {
         // suffixCompareはソートのための比較メソッドである。
         // 次のように定義せよ。
@@ -83,9 +85,9 @@ public class Frequencer implements FrequencerInterface {
 
         // ここにコードを記述せよ
 	if(i == j){
-		return 0;
-	}
-	for(int q = 0;q<mySpace.length;q++){
+            return 0;
+        }
+	for(int q = 0;q < mySpace.length;q++){
 		//文字数上限に基づく比較
 		if(i+q > mySpace.length-1){
 			return -1;
