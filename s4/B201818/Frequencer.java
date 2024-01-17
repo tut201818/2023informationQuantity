@@ -147,6 +147,7 @@ public class Frequencer implements FrequencerInterface {
 	if(s>myTarget.length-1 || e>myTarget.length-1 || s>e){//正しくない引数の場合はreturn -1
         	return -1;
 	}
+	System.out.printf("subbytefrequencyにてreturn %2d なことはなかった",-1);
 	/*int targetLength = myTarget.length;
 	int spaceLength = mySpace.length;
 	if(myTarget.length == 0){//ターゲットが不正な時にreturn -1
