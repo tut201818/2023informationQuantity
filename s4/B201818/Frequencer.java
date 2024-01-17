@@ -238,6 +238,18 @@ public class Frequencer implements FrequencerInterface {
         // if target_start_end is"i", it will return 9 for "Hi Ho Hi Ho".    
         //                                                                   
 	System.out.printf("end%2d ",1);
+
+	int i,j;
+	for (i = 0;i<mySpace.length;i++){
+	    boolean abort = false;
+            for(j = 0; j<(end-start); j++) {//開始地点からターゲットと一致しているか一文字ずつ調べる。
+                if(myTarget[start+j] != mySpace[suffixArray[i]+j]) { abort = true; break; }//一文字でも一致していなければbreak
+            }
+            if(abort == false) { 
+		break;
+	    }//全文字一致だった時にカウント
+        }
+	    
 	for (int i = 0;i<mySpace.length;i++){
 	    boolean abort = true;
             for(int j = 0; j<(end-start); j++) {//開始地点からターゲットと一致しているか一文字ずつ調べる。
