@@ -144,8 +144,8 @@ public class Frequencer implements FrequencerInterface {
     public int subByteFrequency(int s, int e) {
         // Not yet implemented, but it should be defined as specified.
 	System.out.printf("subbytefrequencyにてreturn %2d ",-1);
-	if(s>myTarget.length-1 || e>myTarget.length-1 || s>e){//正しくない引数の場合はreturn -1
-        	return -1;
+	if((s>myTarget.length) || (e>myTarget.length) || (s>e)){//正しくない引数の場合はreturn -1
+        	return -5;
 	}
 	System.out.printf("subbytefrequencyにてreturn %2d なことはなかった",-1);
 	/*int targetLength = myTarget.length;
