@@ -170,6 +170,7 @@ public class Frequencer implements FrequencerInterface {
         System.out.printf("subbytefrequency%2d ",1);
 	int first = subByteStartIndex(s, e);
         int last1 = subByteEndIndex(s, e);
+	System.out.printf("first=%2d end=%sd",first,last1);
         return last1 - first;
     }
 
