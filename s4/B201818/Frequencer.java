@@ -135,7 +135,6 @@ public class Frequencer implements FrequencerInterface {
 	if(debugMode) { System.out.printf("%10d\n", count); }
         return count;
 	*/
-	System.out.printf("frequency%2d ",1);
 	return subByteFrequency(0, myTarget.length);
     }
 
@@ -143,11 +142,9 @@ public class Frequencer implements FrequencerInterface {
     @Override
     public int subByteFrequency(int s, int e) {
         // Not yet implemented, but it should be defined as specified.
-	System.out.printf("subbytefrequencyにてreturn %2d ",-1);
 	if((s>myTarget.length) || (e>myTarget.length) || (s>e)){//正しくない引数の場合はreturn -1
         	return -1;
 	}//この辺の定義がよくわからない
-	System.out.printf("subbytefrequencyにてreturn %2d なことはなかった",-1);
 	/*int targetLength = myTarget.length;
 	int spaceLength = mySpace.length;
 	if(myTarget.length == 0){//ターゲットが不正な時にreturn -1
@@ -167,7 +164,6 @@ public class Frequencer implements FrequencerInterface {
         }
 	if(debugMode) { System.out.printf("%10d\n", count); }
         return count;*/
-        System.out.printf("subbytefrequency%2d ",1);
 	int first = subByteStartIndex(s, e);
         int last1 = subByteEndIndex(s, e);
 	System.out.printf("first=%2d end=%sd",first,last1);
@@ -201,19 +197,15 @@ public class Frequencer implements FrequencerInterface {
         // if target_start_end is "Ho", it will return 5.                           
         // Assuming the suffix array is created from "Hi Ho Hi Ho",                 
         // if target_start_end is "Ho ", it will return 6. 
-	System.out.printf("first%2d ",1);
 	int i,j;
 	for (i = 0;i<mySpace.length;i++){
 	    boolean abort = false;
             for(j = 0; j<(end-start); j++) {//開始地点からターゲットと一致しているか一文字ずつ調べる。
-		System.out.printf("firstloop:%2d,%2d ",i,j);
                 if(myTarget[start+j] != mySpace[suffixArray[i]+j]) { abort = true; break; }//一文字でも一致していなければbreak
             }
             if(abort == false) { 
-		System.out.printf("suffixArray[]=%2d:",i);
 		return i;
 	    }//全文字一致だった時にカウント
-	    System.out.printf("不一致:i,j = %2d,%2d ",i,j);
         }
         return -1;
     }
@@ -265,13 +257,12 @@ public class Frequencer implements FrequencerInterface {
         // White box test, here.
         debugMode = true;
         try {
-		System.out.printf("main%2d ",1);
                 myObject = new Frequencer();
                 myObject.setSpace("Hi Ho Hi Ho".getBytes());//探される文をセット
                 myObject.setTarget("H".getBytes());//探す単語をセット
                 freq = myObject.frequency();
 
-		myObject = new Frequencer();
+		/*myObject = new Frequencer();
                 myObject.setSpace("ABC".getBytes());
                 myObject.printSuffixArray();
                 myObject = new Frequencer();
@@ -282,7 +273,7 @@ public class Frequencer implements FrequencerInterface {
                 myObject.printSuffixArray();
                 myObject = new Frequencer();
                 myObject.setSpace("Hi Ho Hi Ho".getBytes());
-                myObject.printSuffixArray();
+                myObject.printSuffixArray();*/
 		
         }
         catch(Exception e) {
