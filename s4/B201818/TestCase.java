@@ -77,7 +77,7 @@ public class TestCase {
             myObject.setSpace("Hi Ho Hi Ho".getBytes());
             myObject.setTarget("GoodMorningWorld".getBytes());
 	    freq = myObject.frequency();
-	    assert 0 : "ターゲットがスペースより長い場合は0を返すべきですが、返り値は " + freq;
+	    assert freq == 0 : "ターゲットがスペースより長い場合は0を返すべきですが、返り値は " + freq;
 
 	} catch (ArrayIndexOutOfBoundsException e) {
     	// This is the expected behavior, the test has passed
