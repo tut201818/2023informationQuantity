@@ -135,7 +135,7 @@ public class Frequencer implements FrequencerInterface {
 	if(debugMode) { System.out.printf("%10d\n", count); }
         return count;
 	*/
-	System.out.printf("frequency");
+	System.out.printf("frequency%2d ",1);
 	return subByteFrequency(0, myTarget.length);
     }
 
@@ -165,7 +165,7 @@ public class Frequencer implements FrequencerInterface {
         }
 	if(debugMode) { System.out.printf("%10d\n", count); }
         return count;*/
-        System.out.printf("subbytefrequency");
+        System.out.printf("subbytefrequency%2d ",1);
 	int first = subByteStartIndex(s, e);
         int last1 = subByteEndIndex(s, e);
         return last1 - first;
@@ -198,7 +198,7 @@ public class Frequencer implements FrequencerInterface {
         // if target_start_end is "Ho", it will return 5.                           
         // Assuming the suffix array is created from "Hi Ho Hi Ho",                 
         // if target_start_end is "Ho ", it will return 6. 
-	System.out.printf("first");
+	System.out.printf("first%2d ",1);
 	int i,j;
 	for (i = 0;i<mySpace.length;i++){
 	    boolean abort = false;
@@ -242,7 +242,7 @@ public class Frequencer implements FrequencerInterface {
         // Assuming the suffix array is created from "Hi Ho Hi Ho",          
         // if target_start_end is"i", it will return 9 for "Hi Ho Hi Ho".    
         //                                                                   
-	System.out.printf("end");
+	System.out.printf("end%2d ",1);
 	for (int i = 0;i<mySpace.length;i++){
 	    boolean abort = true;
             for(int j = 0; j<(end-start); j++) {//開始地点からターゲットと一致しているか一文字ずつ調べる。
@@ -262,8 +262,7 @@ public class Frequencer implements FrequencerInterface {
         // White box test, here.
         debugMode = true;
         try {
-		int i = 1;
-		System.out.printf("main%2d ",i);
+		System.out.printf("main%2d ",1);
                 myObject = new Frequencer();
                 myObject.setSpace("Hi Ho Hi Ho".getBytes());//探される文をセット
                 myObject.setTarget("H".getBytes());//探す単語をセット
