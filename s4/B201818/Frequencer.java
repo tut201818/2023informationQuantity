@@ -268,7 +268,7 @@ public class Frequencer implements FrequencerInterface {
                 myObject.setTarget("H".getBytes());//探す単語をセット
                 freq = myObject.frequency();
 
-		/*myObject = new Frequencer();
+		myObject = new Frequencer();
                 myObject.setSpace("ABC".getBytes());
                 myObject.printSuffixArray();
                 myObject = new Frequencer();
@@ -280,7 +280,7 @@ public class Frequencer implements FrequencerInterface {
                 myObject = new Frequencer();
                 myObject.setSpace("Hi Ho Hi Ho".getBytes());
                 myObject.printSuffixArray();
-		*/
+		
         }
         catch(Exception e) {
             System.out.println("Exception occurred: STOP");
