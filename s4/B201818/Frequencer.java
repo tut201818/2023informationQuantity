@@ -143,6 +143,7 @@ public class Frequencer implements FrequencerInterface {
     @Override
     public int subByteFrequency(int s, int e) {
         // Not yet implemented, but it should be defined as specified.
+	System.out.printf("subbytefrequencyにてreturn %2d ",-1);
 	if(s>myTarget.length-1 || e>myTarget.length-1 || s>e){//正しくない引数の場合はreturn -1
         	return -1;
 	}
