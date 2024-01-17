@@ -166,7 +166,6 @@ public class Frequencer implements FrequencerInterface {
         return count;*/
 	int first = subByteStartIndex(s, e);
         int last1 = subByteEndIndex(s, e);
-	System.out.printf("first=%2d end=%sd",first,last1);
         return last1 - first;
     }
 
@@ -237,7 +236,6 @@ public class Frequencer implements FrequencerInterface {
         // Assuming the suffix array is created from "Hi Ho Hi Ho",          
         // if target_start_end is"i", it will return 9 for "Hi Ho Hi Ho".    
         //                                                                   
-	System.out.printf("end%2d ",1);
 
 	int i,j;
 	for (i = 0;i<mySpace.length;i++){
@@ -253,7 +251,6 @@ public class Frequencer implements FrequencerInterface {
 	for (i = i;i<mySpace.length;i++){
 	    boolean abort = true;
             for(j = 0; j<(end-start); j++) {//開始地点からターゲットと一致しているか一文字ずつ調べる。
-		System.out.printf("endloop:%2d,%2d ",i,j);
                 if(myTarget[start+j] != mySpace[suffixArray[i]+j]) { abort = false; break; }//一文字でも一致していなければbreak
             }
             if(abort == false) { 
