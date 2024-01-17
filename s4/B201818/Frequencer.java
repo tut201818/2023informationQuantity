@@ -51,7 +51,7 @@ public class Frequencer implements FrequencerInterface {
 	}
 	
 	for(int r = 0;r<(space.length-1);r++){
-   	     for(int i = (space.length-1);i>r;i--){//バブルソート
+   	     for(int i = (space.length-1);i>r;i--){//辞書順になるようにバブルソート
 			if(suffixCompare(suffixArray[i],suffixArray[i-1]) == -1){
 				int a = suffixArray[i];
 				suffixArray[i] = suffixArray[i-1];
@@ -82,24 +82,24 @@ public class Frequencer implements FrequencerInterface {
 
         //リターン0になるのはiとjが同一な時のみ
 	if(i == j){
-            return 0;
+            return 0;// if suffix_i = suffix_j, it returns 0;   
         }
 	for(int q = 0;q < mySpace.length;q++){
 		//文字数上限に基づく比較
 		if(i+q > mySpace.length-1){
-			return -1;
+			return -1;// if suffix_i < suffix_j, it returns -1
 		}
 		if(j+q > mySpace.length-1){
-			return 1;
+			return 1;// if suffix_i > suffix_j, it returns 1
 		}
 
 		//数値比較
 		if(mySpace[i+q] == mySpace[j+q]){
 			//次の周回へ
 		}else if(mySpace[i+q] > mySpace[j+q]){
-			return 1;
+			return 1;// if suffix_i > suffix_j, it returns 1   
 		}else if(mySpace[i+q] < mySpace[j+q]){
-			return -1;
+			return -1;// if suffix_i < suffix_j, it returns -1  
 		}
 	}
 	return 0;
@@ -142,9 +142,9 @@ public class Frequencer implements FrequencerInterface {
     @Override
     public int subByteFrequency(int s, int e) {
         // Not yet implemented, but it should be defined as specified.
-	if((s>myTarget.length) || (e>myTarget.length) || (s>e)){//正しくない引数の場合はreturn -1
+	if((s > myTarget.length-1) || (e > myTarget.length) || (s => e)){//正しくない引数の場合はreturn -1
         	return -1;
-	}//この辺の定義がよくわからない
+	}//この辺の正しさの定義がよくわからない
 	/*int targetLength = myTarget.length;
 	int spaceLength = mySpace.length;
 	if(myTarget.length == 0){//ターゲットが不正な時にreturn -1
@@ -164,8 +164,8 @@ public class Frequencer implements FrequencerInterface {
         }
 	if(debugMode) { System.out.printf("%10d\n", count); }
         return count;*/
-	int first = subByteStartIndex(s, e);
-        int last1 = subByteEndIndex(s, e);
+	int first = subByteStartIndex(s, e);//いくつ目のサフィックスアレイから一致しているか
+        int last1 = subByteEndIndex(s, e);//いくつ目のサフィックスアレイから不一致になるか
         return last1 - first;
     }
 
@@ -236,7 +236,7 @@ public class Frequencer implements FrequencerInterface {
         // Assuming the suffix array is created from "Hi Ho Hi Ho",          
         // if target_start_end is"i", it will return 9 for "Hi Ho Hi Ho".    
         //                                                                   
-
+        //subByteStartIndexと同じ処理をする
 	int i,j;
 	for (i = 0;i<mySpace.length;i++){
 	    boolean abort = false;
@@ -245,9 +245,10 @@ public class Frequencer implements FrequencerInterface {
             }
             if(abort == false) { 
 		break;
-	    }//全文字一致だった時にカウント
+	    }//全文字一致だった時ブレーク
         }
 	    
+	//カウントが進んだ状態からスタート
 	for (i = i;i<mySpace.length;i++){
 	    boolean abort = true;
             for(j = 0; j<(end-start); j++) {//開始地点からターゲットと一致しているか一文字ずつ調べる。
