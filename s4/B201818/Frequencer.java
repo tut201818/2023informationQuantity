@@ -80,7 +80,7 @@ public class Frequencer implements FrequencerInterface {
         // if suffix_i < suffix_j, it returns -1  
         // if suffix_i = suffix_j, it returns 0;   
 
-        // ここにコードを記述せよ
+        //リターン0になるのはiとjが同一な時のみ
 	if(i == j){
             return 0;
         }
@@ -135,6 +135,7 @@ public class Frequencer implements FrequencerInterface {
 	if(debugMode) { System.out.printf("%10d\n", count); }
         return count;
 	*/
+	System.out.printf("frequency");
 	return subByteFrequency(0, myTarget.length);
     }
 
@@ -164,7 +165,7 @@ public class Frequencer implements FrequencerInterface {
         }
 	if(debugMode) { System.out.printf("%10d\n", count); }
         return count;*/
-
+        System.out.printf("subbytefrequency");
 	int first = subByteStartIndex(s, e);
         int last1 = subByteEndIndex(s, e);
         return last1 - first;
@@ -197,10 +198,12 @@ public class Frequencer implements FrequencerInterface {
         // if target_start_end is "Ho", it will return 5.                           
         // Assuming the suffix array is created from "Hi Ho Hi Ho",                 
         // if target_start_end is "Ho ", it will return 6. 
+	System.out.printf("first");
 	int i,j;
 	for (i = 0;i<mySpace.length;i++){
 	    boolean abort = false;
             for(j = 0; j<(end-start); j++) {//開始地点からターゲットと一致しているか一文字ずつ調べる。
+		System.out.printf("firstloop:%2d,%2d ",i,j);
                 if(myTarget[start+j] != mySpace[suffixArray[i]+j]) { abort = true; break; }//一文字でも一致していなければbreak
             }
             if(abort == false) { 
@@ -239,9 +242,11 @@ public class Frequencer implements FrequencerInterface {
         // Assuming the suffix array is created from "Hi Ho Hi Ho",          
         // if target_start_end is"i", it will return 9 for "Hi Ho Hi Ho".    
         //                                                                   
+	System.out.printf("end");
 	for (int i = 0;i<mySpace.length;i++){
 	    boolean abort = true;
             for(int j = 0; j<(end-start); j++) {//開始地点からターゲットと一致しているか一文字ずつ調べる。
+		System.out.printf("endloop:%2d,%2d ",i,j);
                 if(myTarget[start+j] != mySpace[suffixArray[i]+j]) { abort = false; break; }//一文字でも一致していなければbreak
             }
             if(abort == false) { 
@@ -257,6 +262,7 @@ public class Frequencer implements FrequencerInterface {
         // White box test, here.
         debugMode = true;
         try {
+		System.out.printf("main");
                 myObject = new Frequencer();
                 myObject.setSpace("Hi Ho Hi Ho".getBytes());//探される文をセット
                 myObject.setTarget("H".getBytes());//探す単語をセット
