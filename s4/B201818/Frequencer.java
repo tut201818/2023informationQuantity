@@ -262,7 +262,7 @@ public class Frequencer implements FrequencerInterface {
         // White box test, here.
         debugMode = true;
         try {
-		System.out.printf("main");
+		System.out.printin("main");
                 myObject = new Frequencer();
                 myObject.setSpace("Hi Ho Hi Ho".getBytes());//探される文をセット
                 myObject.setTarget("H".getBytes());//探す単語をセット
