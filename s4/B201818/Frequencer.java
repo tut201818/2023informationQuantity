@@ -250,9 +250,9 @@ public class Frequencer implements FrequencerInterface {
 	    }//全文字一致だった時にカウント
         }
 	    
-	for (int i = 0;i<mySpace.length;i++){
+	for (i = 0;i<mySpace.length;i++){
 	    boolean abort = true;
-            for(int j = 0; j<(end-start); j++) {//開始地点からターゲットと一致しているか一文字ずつ調べる。
+            for(j = 0; j<(end-start); j++) {//開始地点からターゲットと一致しているか一文字ずつ調べる。
 		System.out.printf("endloop:%2d,%2d ",i,j);
                 if(myTarget[start+j] != mySpace[suffixArray[i]+j]) { abort = false; break; }//一文字でも一致していなければbreak
             }
