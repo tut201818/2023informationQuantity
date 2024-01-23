@@ -101,12 +101,11 @@ public class TestCase {
             myObject.setSpace("Hi Ho Hi Ho".getBytes());
             myObject.setTarget("GoodMorningWorld".getBytes());
 	    freq = myObject.frequency();
-	    System.out.println("target length is greater than space length:freq = " + freq);
 	    assert freq == 0 : "ターゲットがスペースより長い場合は0を返すべきですが、返り値は " + freq;
 
 	} catch (ArrayIndexOutOfBoundsException e) {
     	// This is the expected behavior, the test has passed
-    		System.out.println("Exception occurred in Frequencer Object Because target length is greater than space length");
+    		System.out.println("No Exception Occured in Freqencer");
 	} 
 	catch(Exception e) {
 	    System.out.println("Exception occurred in Frequencer Object");
