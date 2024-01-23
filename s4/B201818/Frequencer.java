@@ -344,7 +344,8 @@ public class Frequencer implements FrequencerInterface {
         catch(Exception e) {
             System.out.println("Exception occurred: STOP7");
         }
-	myObject = new Frequencer();
+	
+	/*myObject = new Frequencer();
         myObject.setSpace("ABC".getBytes());
         myObject.printSuffixArray();
         myObject = new Frequencer();
@@ -355,6 +356,6 @@ public class Frequencer implements FrequencerInterface {
         myObject.printSuffixArray();
         myObject = new Frequencer();
         myObject.setSpace("Hi Ho Hi Ho".getBytes());
-        myObject.printSuffixArray();
+        myObject.printSuffixArray();*/
     }
 }
