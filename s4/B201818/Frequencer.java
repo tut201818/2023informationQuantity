@@ -296,9 +296,9 @@ public class Frequencer implements FrequencerInterface {
             System.out.println("Exception occurred: STOP2");
         }
        try {
-                myObject = new Frequencer();
-                myObject.setTarget("Hi Ho Hi Ho Hi Ho".getBytes());//探す単語をセット
-                freq = myObject.frequency();
+                myObject3 = new Frequencer();
+                myObject3.setTarget("Hi Ho Hi Ho Hi Ho".getBytes());//探す単語をセット
+                freq = myObject3.frequency();
 		assert freq == 0 : "test3:" + freq;
 	       }
         catch(Exception e) {
