@@ -298,7 +298,7 @@ public class Frequencer implements FrequencerInterface {
        try {
                 myObject = new Frequencer();
                 myObject.setTarget("Hi Ho Hi Ho Hi Ho".getBytes());//探す単語をセット
-                freq = myObject3.frequency();
+                freq = myObject.frequency();
 		assert freq == -1 : "test3:" + freq;
 	       }
         catch(Exception e) {
