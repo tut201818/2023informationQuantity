@@ -126,6 +126,9 @@ public class Frequencer implements FrequencerInterface {
 	if(mySpace.length == 0 || spaceReady == false){//スペースが不正な時にreturn 0
 		return 0;
 	}
+	if(mySpace.length < myTarget.length){//スペースよりターゲットの方が大きい時にreturn 0
+		return 0;
+	}
 	/*
         int count = 0;
 	if(debugMode) { showVariables(); }
