@@ -52,9 +52,9 @@ public class Frequencer implements FrequencerInterface {
             suffixArray[i] = i;//suffixArrayの中身は0,1,2,3...space.length-1になる
             }
 	    //マージソート
-	    suffixArray = msort(suffixArray);
+	    //suffixArray = msort(suffixArray);
 	    //辞書順になるようにバブルソート
-	    /*for(int r = 0;r<(space.length-1);r++){
+	    for(int r = 0;r<(space.length-1);r++){
    	         for(int i = (space.length-1);i>r;i--){
 			if(suffixCompare(suffixArray[i],suffixArray[i-1]) == -1){
 				int a = suffixArray[i];
@@ -62,7 +62,7 @@ public class Frequencer implements FrequencerInterface {
 				suffixArray[i-1] = a;
 			}
 		}
-	    }*/
+	    }
 	}
     }
     private int suffixCompare(int i, int j) {
