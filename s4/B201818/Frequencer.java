@@ -271,11 +271,36 @@ public class Frequencer implements FrequencerInterface {
                 myObject.setSpace("Hi Ho Hi Ho".getBytes());//探される文をセット
                 myObject.setTarget("H".getBytes());//探す単語をセット
                 freq = myObject.frequency();
+		assert freq == 4 : "test1:" + freq;
 
 		myObject = new Frequencer();
                 myObject.setSpace("Hi Ho Hi Ho".getBytes());//探される文をセット
                 myObject.setTarget("Hi Ho Hi Ho Hi Ho".getBytes());//探す単語をセット
                 freq = myObject.frequency();
+		assert freq == 0 : "test2:" + freq;
+
+                myObject = new Frequencer();
+                myObject.setTarget("Hi Ho Hi Ho Hi Ho".getBytes());//探す単語をセット
+                freq = myObject.frequency();
+		assert freq == 0 : "test3:" + freq;
+
+		myObject = new Frequencer();
+                myObject.setSpace("Hi Ho Hi Ho".getBytes());//探される文をセット
+                freq = myObject.frequency();
+		assert freq == -1 : "test4:" + freq;
+
+		myObject = new Frequencer();
+                myObject.setSpace("Hi Ho Hi Ho".getBytes());//探される文をセット
+                myObject.setTarget("Hi Ho Hi Ho".getBytes());//探す単語をセット
+                freq = myObject.frequency();
+		assert freq == 1 : "test5:" + freq;
+
+                myObject = new Frequencer();
+                myObject.setSpace("Hi Ho Hi Ho".getBytes());//探される文をセット
+                myObject.setTarget("i".getBytes());//探す単語をセット
+                freq = myObject.frequency();
+		assert freq == 2 : "test6:" + freq;
+
 		
 		/*myObject = new Frequencer();
                 myObject.setSpace("ABC".getBytes());
