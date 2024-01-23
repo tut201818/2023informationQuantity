@@ -210,13 +210,15 @@ public class Frequencer implements FrequencerInterface {
 	int i,j;
 	for (i = 0;i<mySpace.length;i++){
 	    boolean abort = false;
+	　　if((suffixArray[i] + (end-start)) < mySpace.length){//文字数を超過していれば
             for(j = 0; j<(end-start); j++) {//開始地点からターゲットと一致しているか一文字ずつ調べる。
-		if((suffixArray[i] + j) > mySpace.length)  { abort = true; break; }//文字数を超過していればbreak
+		
                 if(myTarget[start+j] != mySpace[suffixArray[i] + j]) { abort = true; break; }//一文字でも一致していなければbreak
             	}
             if(abort == false) { 
 		return i;
 	    }//全文字一致だった時にカウント
+	  }
         }
         return -1;
     }
@@ -252,6 +254,7 @@ public class Frequencer implements FrequencerInterface {
 	int i,j;
 	for (i = 0;i<mySpace.length;i++){
 	    boolean abort = false;
+	    if((suffixArray[i] + (end-start)) < mySpace.length){//文字数を超過していれば
             for(j = 0; j<(end-start); j++) {//開始地点からターゲットと一致しているか一文字ずつ調べる。
 		if((suffixArray[i] + j) > mySpace.length)  { abort = true; break; }//文字数を超過していればbreak
                 if(myTarget[start+j] != mySpace[suffixArray[i]+j]) { abort = true; break; }//一文字でも一致していなければbreak
@@ -259,11 +262,13 @@ public class Frequencer implements FrequencerInterface {
             if(abort == false) { 
 		break;
 	    }//全文字一致だった時ブレーク
-        }
+            }
+	}
 	    
 	//カウントが進んだ状態からスタート
 	for (i = i;i<mySpace.length;i++){
 	    boolean abort = true;
+	    if((suffixArray[i] + (end-start)) < mySpace.length){return i;}//文字数を超過していれば
             for(j = 0; j<(end-start); j++) {//開始地点からターゲットと一致しているか一文字ずつ調べる。
 		if((suffixArray[i] + j) > mySpace.length)  { abort = true; break; }//文字数を超過していればbreak
                 if(myTarget[start+j] != mySpace[suffixArray[i]+j]) { abort = false; break; }//一文字でも一致していなければbreak
