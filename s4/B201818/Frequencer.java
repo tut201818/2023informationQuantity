@@ -51,19 +51,20 @@ public class Frequencer implements FrequencerInterface {
             for(int i = 0;i<space.length;i++) {
             suffixArray[i] = i;//suffixArrayの中身は0,1,2,3...space.length-1になる
             }
-	}
-	
-	for(int r = 0;r<(space.length-1);r++){
-   	     for(int i = (space.length-1);i>r;i--){//辞書順になるようにバブルソート
+	    //マージソート
+	    suffixArray = msort(suffixArray);
+	    //辞書順になるようにバブルソート
+	    /*for(int r = 0;r<(space.length-1);r++){
+   	         for(int i = (space.length-1);i>r;i--){
 			if(suffixCompare(suffixArray[i],suffixArray[i-1]) == -1){
 				int a = suffixArray[i];
 				suffixArray[i] = suffixArray[i-1];
 				suffixArray[i-1] = a;
 			}
 		}
+	    }*/
 	}
     }
-
     private int suffixCompare(int i, int j) {
         // suffixCompareはソートのための比較メソッドである。
         // 次のように定義せよ。
@@ -106,6 +107,34 @@ public class Frequencer implements FrequencerInterface {
 		}
 	}
 	return 0;
+    }
+
+    private int[] msort(suffixArray){
+	if(suffixArray.length==1){
+		return suffixArray;
+	}
+	
+	if(suffixArray.length % 2 == 0){
+	    if(suffixArray.length==2){
+		if(suffixCompare(suffixArray[0],suffixArray[1]) == -1){//辞書順に入れ替え
+			x = suffixArray[0];
+			uffixArray[0] = suffixArray[1];
+			y = x;
+		}
+		return suffixArray;
+	    }
+            int[] a = msort(suffixArray.slice(0,(suffixArray.length / 2)))
+            int[] b = msort(suffixArray.slice(suffixArray.length / 2),suffixArray.length)
+	}else{
+	    if(suffixArray.length==1){
+		return suffixArray;
+	    }
+	    int[] a = msort(suffixArray.slice(0,(suffixArray.length / 2)))
+            int[] b = msort(suffixArray.slice(suffixArray.length / 2),suffixArray.length)
+	}
+
+	//配列aとbを辞書順にマージしリターン
+
     }
 	
     private void showVariables() {
