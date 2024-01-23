@@ -208,7 +208,7 @@ public class Frequencer implements FrequencerInterface {
         // Assuming the suffix array is created from "Hi Ho Hi Ho",                 
         // if target_start_end is "Ho ", it will return 6. 
 	int i,j;
-	for (i = 0;i<mySpace.length;i++){
+	for (i = 0;i<(mySpace.length+1);i++){
 	    boolean abort = false;
             if((suffixArray[i] + (end-start)) <= mySpace.length){//文字数を超過していれば
             for(j = 0; j<(end-start); j++) {//開始地点からターゲットと一致しているか一文字ずつ調べる。
@@ -251,7 +251,7 @@ public class Frequencer implements FrequencerInterface {
         //                                                                   
         //subByteStartIndexと同じ処理をする
 	int i,j;
-	for (i = 0;i<mySpace.length;i++){
+	for (i = 0;i<(mySpace.length+1);i++){
 	    boolean abort = false;
             if((suffixArray[i] + (end-start)) <= mySpace.length){//文字数を超過していれば
             for(j = 0; j<(end-start); j++) {//開始地点からターゲットと一致しているか一文字ずつ調べる。
@@ -264,9 +264,9 @@ public class Frequencer implements FrequencerInterface {
 	}
 	    
 	//カウントが進んだ状態からスタート
-	for (i = i;i<mySpace.length;i++){
+	for (i = i;i<(mySpace.length+1);i++){
 	    boolean abort = true;
-            if((suffixArray[i] + (end-start)) <= mySpace.length){return i;}//文字数を超過していれば
+            if((suffixArray[i] + (end-start)) > mySpace.length){return i;}//文字数を超過していれば
             for(j = 0; j<(end-start); j++) {//開始地点からターゲットと一致しているか一文字ずつ調べる。
                 if(myTarget[start+j] != mySpace[suffixArray[i]+j]) { abort = false; break; }//一文字でも一致していなければbreak
             }
