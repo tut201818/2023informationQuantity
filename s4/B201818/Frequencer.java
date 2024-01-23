@@ -303,7 +303,7 @@ public class Frequencer implements FrequencerInterface {
 	        System.out.printf("suffixArray[%2d]:",freq);
 	       }
         catch(Exception e) {
-            System.out.println("Exception occurred: STOP3" + freq);
+            System.out.println("Exception occurred: STOP3");
         }
 	
        try {
@@ -313,7 +313,7 @@ public class Frequencer implements FrequencerInterface {
 		assert freq == -1 : "test4:" + freq;
 	}
         catch(Exception e) {
-            System.out.println("Exception occurred: STOP4:" + freq);
+            System.out.println("Exception occurred: STOP4:");
         }
 	
        try {
@@ -324,7 +324,7 @@ public class Frequencer implements FrequencerInterface {
 		assert freq == 1 : "test5:" + freq;
 	}
         catch(Exception e) {
-            System.out.println("Exception occurred: STOP5" + freq);
+            System.out.println("Exception occurred: STOP5");
         }
         try {
                 myObject = new Frequencer();
