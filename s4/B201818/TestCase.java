@@ -44,7 +44,31 @@ public class TestCase {
 	    myObject.setTarget("H".getBytes());
 	    freq = myObject.frequency();
 	    assert freq == 4 : "Hi Ho Hi Ho, H: " + freq;
-
+		
+	    myObject = new Frequencer();
+	    myObject.setSpace("Hi Ho H".getBytes());
+	    myObject.setTarget("H".getBytes());
+	    freq = myObject.frequency();
+	    assert freq == 3 : "Hi Ho Hi Ho, H: " + freq;
+		
+	    myObject = new Frequencer();
+	    myObject.setSpace("Hi Ho Hi Ho".getBytes());
+	    myObject.setTarget("Hi Ho".getBytes());
+	    freq = myObject.frequency();
+	    assert freq == 2 : "Hi Ho Hi Ho, H: " + freq;
+		
+	    myObject = new Frequencer();
+	    myObject.setSpace("Hi Ho Hi Ho".getBytes());
+	    myObject.setTarget("Hi Ho H".getBytes());
+	    freq = myObject.frequency();
+	    assert freq == 1 : "Hi Ho Hi Ho, H: " + freq;
+		
+	    myObject = new Frequencer();
+	    myObject.setSpace("Hi Ho Hi Ho".getBytes());
+	    myObject.setTarget("Hi Ho Hi Ho".getBytes());
+	    freq = myObject.frequency();
+	    assert freq == 1 : "Hi Ho Hi Ho, H: " + freq;
+		
 	    // 空のターゲットでテスト
 	    myObject.setTarget("".getBytes());
 	    freq = myObject.frequency();
