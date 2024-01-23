@@ -197,7 +197,7 @@ public class Frequencer implements FrequencerInterface {
         // Assuming the suffix array is created from "Hi Ho Hi Ho",                 
         // if target_start_end is "Ho ", it will return 6. 
 	int i,j;
-	for (i = 0;i<mySpace.length;i++){
+	for (i = 0;i<mySpace.length - (end - start);i++){
 	    boolean abort = false;
             for(j = 0; j<(end-start); j++) {//開始地点からターゲットと一致しているか一文字ずつ調べる。
                 if(myTarget[start+j] != mySpace[suffixArray[i]+j]) { abort = true; break; }//一文字でも一致していなければbreak
@@ -238,7 +238,7 @@ public class Frequencer implements FrequencerInterface {
         //                                                                   
         //subByteStartIndexと同じ処理をする
 	int i,j;
-	for (i = 0;i<mySpace.length;i++){
+	for (i = 0;i<mySpace.length - (end - start);i++){
 	    boolean abort = false;
             for(j = 0; j<(end-start); j++) {//開始地点からターゲットと一致しているか一文字ずつ調べる。
                 if(myTarget[start+j] != mySpace[suffixArray[i]+j]) { abort = true; break; }//一文字でも一致していなければbreak
@@ -249,7 +249,7 @@ public class Frequencer implements FrequencerInterface {
         }
 	    
 	//カウントが進んだ状態からスタート
-	for (i = i;i<mySpace.length;i++){
+	for (i = i;i<mySpace.length - (end - start);i++){
 	    boolean abort = true;
             for(j = 0; j<(end-start); j++) {//開始地点からターゲットと一致しているか一文字ずつ調べる。
                 if(myTarget[start+j] != mySpace[suffixArray[i]+j]) { abort = false; break; }//一文字でも一致していなければbreak
@@ -258,7 +258,7 @@ public class Frequencer implements FrequencerInterface {
 		return i;
 	    }//不一致だった時にリターン
         }                           
-        return 1;
+        return -1;
     }
 
     public static void main(String[] args) {
@@ -276,8 +276,7 @@ public class Frequencer implements FrequencerInterface {
                 myObject.setSpace("Hi Ho Hi Ho".getBytes());//探される文をセット
                 myObject.setTarget("Hi Ho Hi Ho Hi Ho".getBytes());//探す単語をセット
                 freq = myObject.frequency();
-		System.out.println("target length is greater than space length:freq = " + freq);
-
+		
 		/*myObject = new Frequencer();
                 myObject.setSpace("ABC".getBytes());
                 myObject.printSuffixArray();
