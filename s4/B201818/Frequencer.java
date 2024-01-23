@@ -300,7 +300,6 @@ public class Frequencer implements FrequencerInterface {
                 myObject.setTarget("Hi Ho Hi Ho Hi Ho".getBytes());//探す単語をセット
                 freq = myObject.frequency();
 		assert freq == 0 : "test3:" + freq;
-	        System.out.printf("suffixArray[%2d]:",freq);
 	       }
         catch(Exception e) {
             System.out.println("Exception occurred: STOP3");
