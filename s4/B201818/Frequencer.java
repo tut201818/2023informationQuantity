@@ -17,7 +17,6 @@ interface FrequencerInterface {  // This interface provides the design for frequ
 
 
 public class Frequencer implements FrequencerInterface {
-    // Code to Test, *warning: This code contains intentional problem*
     static boolean debugMode = false;
     byte[] myTarget;
     byte[] mySpace;
@@ -296,7 +295,7 @@ public class Frequencer implements FrequencerInterface {
             System.out.println("Exception occurred: STOP2");
         }
        try {
-                myObject3 = new Frequencer();
+                Frequencer myObject3 = new Frequencer();
                 myObject3.setTarget("Hi Ho Hi Ho Hi Ho".getBytes());//探す単語をセット
                 freq = myObject3.frequency();
 		assert freq == 0 : "test3:" + freq;
