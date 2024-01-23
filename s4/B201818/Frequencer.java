@@ -272,6 +272,12 @@ public class Frequencer implements FrequencerInterface {
                 myObject.setTarget("H".getBytes());//探す単語をセット
                 freq = myObject.frequency();
 
+		myObject = new Frequencer();
+                myObject.setSpace("Hi Ho Hi Ho".getBytes());//探される文をセット
+                myObject.setTarget("Hi Ho Hi Ho Hi Ho".getBytes());//探す単語をセット
+                freq = myObject.frequency();
+		System.out.println("target length is greater than space length:freq = " + freq);
+
 		/*myObject = new Frequencer();
                 myObject.setSpace("ABC".getBytes());
                 myObject.printSuffixArray();
