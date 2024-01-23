@@ -120,10 +120,10 @@ public class Frequencer implements FrequencerInterface {
     public int frequency() {
 	int targetLength = myTarget.length;
 	int spaceLength = mySpace.length;
-	if(myTarget.length == 0 || targetReady == false){//ターゲットが不正な時にreturn -1
+	if((myTarget.length == 0) || (targetReady == false)){//ターゲットが不正な時にreturn -1
 		return -1;
 	}
-	if(mySpace.length == 0 || spaceReady == false){//スペースが不正な時にreturn 0
+	if((mySpace.length == 0) || (spaceReady == false)){//スペースが不正な時にreturn 0
 		return 0;
 	}
 	if(mySpace.length < myTarget.length){//スペースよりターゲットの方が大きい時にreturn 0
