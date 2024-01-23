@@ -117,12 +117,18 @@ public class Frequencer implements FrequencerInterface {
 
     @Override
     public int frequency() {
-	int targetLength = myTarget.length;
-	int spaceLength = mySpace.length;
-	if((myTarget.length == 0) || (targetReady == false)){//ターゲットが不正な時にreturn -1
+	if(targetReady == false){//ターゲットが未セットな時にreturn -1
 		return -1;
 	}
-	if((mySpace.length == 0) || (spaceReady == false)){//スペースが不正な時にreturn 0
+	if(spaceReady == false){//スペースが未セットな時にreturn 0
+		return 0;
+	}
+	int targetLength = myTarget.length;
+	int spaceLength = mySpace.length;
+	if(myTarget.length == 0){//ターゲットが不正な時にreturn -1
+		return -1;
+	}
+	if(mySpace.length == 0){//スペースが不正な時にreturn 0
 		return 0;
 	}
 	if(mySpace.length < myTarget.length){//スペースよりターゲットの方が大きい時にreturn 0
