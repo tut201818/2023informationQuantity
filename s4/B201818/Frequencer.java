@@ -299,6 +299,7 @@ public class Frequencer implements FrequencerInterface {
                 myObject = new Frequencer();
                 myObject.setTarget("Hi Ho Hi Ho Hi Ho".getBytes());//探す単語をセット
                 freq = myObject.frequency();
+	        System.out.println("0:" + freq);
 		assert freq == 0 : "test3:" + freq;
 	       }
         catch(Exception e) {
@@ -308,6 +309,7 @@ public class Frequencer implements FrequencerInterface {
 		myObject = new Frequencer();
                 myObject.setSpace("Hi Ho Hi Ho".getBytes());//探される文をセット
                 freq = myObject.frequency();
+	        System.out.println("-1:" + freq);
 		assert freq == -1 : "test4:" + freq;
 	}
         catch(Exception e) {
