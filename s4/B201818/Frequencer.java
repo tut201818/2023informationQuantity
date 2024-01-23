@@ -123,14 +123,14 @@ public class Frequencer implements FrequencerInterface {
 		}
 		return suffixArray;
 	    }
-            int[] a = msort(suffixArray.slice(0,(suffixArray.length / 2)))
-            int[] b = msort(suffixArray.slice(suffixArray.length / 2),suffixArray.length)
+            int[] a = msort(suffixArray.slice(0,(suffixArray.length / 2)));
+            int[] b = msort(suffixArray.slice(suffixArray.length / 2),suffixArray.length);
 	}else{
 	    if(suffixArray.length==1){
 		return suffixArray;
 	    }
-	    int[] a = msort(suffixArray.slice(0,(suffixArray.length / 2)))
-            int[] b = msort(suffixArray.slice(suffixArray.length / 2),suffixArray.length)
+	    int[] a = msort(suffixArray.slice(0,(suffixArray.length / 2)));
+            int[] b = msort(suffixArray.slice(suffixArray.length / 2),suffixArray.length);
 	}
 
 	//配列aとbを辞書順にマージしリターン
