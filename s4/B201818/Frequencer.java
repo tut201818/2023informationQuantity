@@ -329,24 +329,32 @@ public class Frequencer implements FrequencerInterface {
                 myObject.setTarget("i".getBytes());//探す単語をセット
                 freq = myObject.frequency();
 		assert freq == 2 : "test6:" + freq;
-
-		
-		/*myObject = new Frequencer();
-                myObject.setSpace("ABC".getBytes());
-                myObject.printSuffixArray();
-                myObject = new Frequencer();
-                myObject.setSpace("CBA".getBytes());
-                myObject.printSuffixArray();
-                myObject = new Frequencer();
-                myObject.setSpace("HHH".getBytes());
-                myObject.printSuffixArray();
-                myObject = new Frequencer();
-                myObject.setSpace("Hi Ho Hi Ho".getBytes());
-                myObject.printSuffixArray();*/
-		
         }
         catch(Exception e) {
             System.out.println("Exception occurred: STOP6");
         }
+
+	try {
+                myObject = new Frequencer();
+                myObject.setSpace("H".getBytes());//探される文をセット
+                myObject.setTarget("i".getBytes());//探す単語をセット
+                freq = myObject.frequency();
+		assert freq == 0 : "test6:" + freq;
+        }
+        catch(Exception e) {
+            System.out.println("Exception occurred: STOP7");
+        }
+	myObject = new Frequencer();
+        myObject.setSpace("ABC".getBytes());
+        myObject.printSuffixArray();
+        myObject = new Frequencer();
+        myObject.setSpace("CBA".getBytes());
+        myObject.printSuffixArray();
+        myObject = new Frequencer();
+        myObject.setSpace("H".getBytes());
+        myObject.printSuffixArray();
+        myObject = new Frequencer();
+        myObject.setSpace("Hi Ho Hi Ho".getBytes());
+        myObject.printSuffixArray();
     }
 }
