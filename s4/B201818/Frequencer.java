@@ -343,6 +343,16 @@ public class Frequencer implements FrequencerInterface {
         catch(Exception e) {
             System.out.println("Exception occurred: STOP6");
         }
+	try {
+                myObject = new Frequencer();
+                myObject.setSpace("Hi Ho Hi Ho".getBytes());//探される文をセット
+                myObject.setTarget("H".getBytes());//探す単語をセット
+                freq = myObject.frequency();
+		assert freq == 4 : "test6:" + freq;
+        }
+        catch(Exception e) {
+            System.out.println("Exception occurred: STOP9");
+        }
 
 	try {
                 myObject = new Frequencer();
