@@ -105,7 +105,7 @@ public class TestCase {
 
 	} catch (ArrayIndexOutOfBoundsException e) {
     	// This is the expected behavior, the test has passed
-    		System.out.println("No Exception Occured in Freqencer");
+    		System.out.println("husei na index de array ni access");
 	} 
 	catch(Exception e) {
 	    System.out.println("Exception occurred in Frequencer Object");
