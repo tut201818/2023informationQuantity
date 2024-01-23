@@ -109,7 +109,7 @@ public class Frequencer implements FrequencerInterface {
 	return 0;
     }
 
-    private int[] msort(suffixArray){
+    /*private int[] msort(suffixArray){
 	if(suffixArray.length==1){
 		return suffixArray;
 	}
@@ -135,7 +135,7 @@ public class Frequencer implements FrequencerInterface {
 
 	//配列aとbを辞書順にマージしリターン
 
-    }
+    }*/
 	
     private void showVariables() {
 	for(int i=0; i< mySpace.length; i++) { System.out.write(mySpace[i]); }
