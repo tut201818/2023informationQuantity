@@ -101,6 +101,7 @@ public class TestCase {
             myObject.setSpace("Hi Ho Hi Ho".getBytes());
             myObject.setTarget("GoodMorningWorld".getBytes());
 	    freq = myObject.frequency();
+	    System.out.println("target length is greater than space length:freq = " + freq);
 	    assert freq == 0 : "ターゲットがスペースより長い場合は0を返すべきですが、返り値は " + freq;
 
 	} catch (ArrayIndexOutOfBoundsException e) {
