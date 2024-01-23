@@ -141,7 +141,6 @@ public class Frequencer implements FrequencerInterface {
     // I know that here is a potential problem in the declaration.
     @Override
     public int subByteFrequency(int s, int e) {
-        // Not yet implemented, but it should be defined as specified.
 	if((s > myTarget.length-1) || (e > myTarget.length) || (s >= e)){//正しくない引数の場合はreturn -1
         	return -1;
 	}//この辺の正しさの定義がよくわからない
@@ -275,29 +274,49 @@ public class Frequencer implements FrequencerInterface {
                 myObject.setTarget("H".getBytes());//探す単語をセット
                 freq = myObject.frequency();
 		assert freq == 4 : "test1:" + freq;
-
+		}
+        catch(Exception e) {
+            System.out.println("Exception occurred: STOP1");
+        }
+        try {
 		myObject = new Frequencer();
                 myObject.setSpace("Hi Ho Hi Ho".getBytes());//探される文をセット
                 myObject.setTarget("Hi Ho Hi Ho Hi Ho".getBytes());//探す単語をセット
                 freq = myObject.frequency();
 		assert freq == 0 : "test2:" + freq;
-
+		}
+        catch(Exception e) {
+            System.out.println("Exception occurred: STOP2");
+        }
+       try {
                 myObject = new Frequencer();
                 myObject.setTarget("Hi Ho Hi Ho Hi Ho".getBytes());//探す単語をセット
                 freq = myObject.frequency();
 		assert freq == 0 : "test3:" + freq;
-
+	       }
+        catch(Exception e) {
+            System.out.println("Exception occurred: STOP3");
+        }
+       try {
 		myObject = new Frequencer();
                 myObject.setSpace("Hi Ho Hi Ho".getBytes());//探される文をセット
                 freq = myObject.frequency();
 		assert freq == -1 : "test4:" + freq;
-
+	}
+        catch(Exception e) {
+            System.out.println("Exception occurred: STOP4");
+        }
+       try {
 		myObject = new Frequencer();
                 myObject.setSpace("Hi Ho Hi Ho".getBytes());//探される文をセット
                 myObject.setTarget("Hi Ho Hi Ho".getBytes());//探す単語をセット
                 freq = myObject.frequency();
 		assert freq == 1 : "test5:" + freq;
-
+	}
+        catch(Exception e) {
+            System.out.println("Exception occurred: STOP5");
+        }
+        try {
                 myObject = new Frequencer();
                 myObject.setSpace("Hi Ho Hi Ho".getBytes());//探される文をセット
                 myObject.setTarget("i".getBytes());//探す単語をセット
@@ -320,7 +339,7 @@ public class Frequencer implements FrequencerInterface {
 		
         }
         catch(Exception e) {
-            System.out.println("Exception occurred: STOP");
+            System.out.println("Exception occurred: STOP6");
         }
     }
 }
