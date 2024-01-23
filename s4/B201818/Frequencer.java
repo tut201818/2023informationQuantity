@@ -206,7 +206,7 @@ public class Frequencer implements FrequencerInterface {
 		return i;
 	    }//全文字一致だった時にカウント
         }
-        return 0;
+        return -1;
     }
 
     private int subByteEndIndex(int start, int end) {
@@ -258,7 +258,7 @@ public class Frequencer implements FrequencerInterface {
 		return i;
 	    }//不一致だった時にリターン
         }                           
-        return 0;
+        return 1;
     }
 
     public static void main(String[] args) {
