@@ -21,6 +21,8 @@ public class Frequencer implements FrequencerInterface {
     static boolean debugMode = false;
     byte[] myTarget;
     byte[] mySpace;
+    boolean targetReady = false;
+    boolean spaceReady = false;
     int []  suffixArray;
 
     private void printSuffixArray() {
@@ -39,10 +41,12 @@ public class Frequencer implements FrequencerInterface {
     @Override
     public void setTarget(byte[] target) {
         myTarget = target;
+	targetReady = true;
     }
     @Override
     public void setSpace(byte[] space) {
         mySpace = space;
+	spaceReady = true;
         if(space.length != 0){
             suffixArray = new int[space.length];
             for(int i = 0;i<space.length;i++) {
@@ -116,10 +120,10 @@ public class Frequencer implements FrequencerInterface {
     public int frequency() {
 	int targetLength = myTarget.length;
 	int spaceLength = mySpace.length;
-	if(myTarget.length == 0){//ターゲットが不正な時にreturn -1
+	if(myTarget.length == 0 || targetReady == false){//ターゲットが不正な時にreturn -1
 		return -1;
 	}
-	if(mySpace.length == 0){//スペースが不正な時にreturn 0
+	if(mySpace.length == 0 || spaceReady == false){//スペースが不正な時にreturn 0
 		return 0;
 	}
 	/*
