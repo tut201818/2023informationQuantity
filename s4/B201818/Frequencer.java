@@ -176,6 +176,7 @@ public class Frequencer implements FrequencerInterface {
 	if(debugMode) { System.out.printf("%10d\n", count); }
         return count;*/
 	int first = subByteStartIndex(s, e);//いくつ目のサフィックスアレイから一致しているか
+	if(fiest == -1) return 0;
         int last1 = subByteEndIndex(s, e);//いくつ目のサフィックスアレイから不一致になるか
         return last1 - first;
     }
