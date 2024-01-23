@@ -256,7 +256,6 @@ public class Frequencer implements FrequencerInterface {
 	    boolean abort = false;
 	    if((suffixArray[i] + (end-start)) < mySpace.length){//文字数を超過していれば
             for(j = 0; j<(end-start); j++) {//開始地点からターゲットと一致しているか一文字ずつ調べる。
-		if((suffixArray[i] + j) > mySpace.length)  { abort = true; break; }//文字数を超過していればbreak
                 if(myTarget[start+j] != mySpace[suffixArray[i]+j]) { abort = true; break; }//一文字でも一致していなければbreak
             }
             if(abort == false) { 
@@ -270,7 +269,6 @@ public class Frequencer implements FrequencerInterface {
 	    boolean abort = true;
 	    if((suffixArray[i] + (end-start)) < mySpace.length){return i;}//文字数を超過していれば
             for(j = 0; j<(end-start); j++) {//開始地点からターゲットと一致しているか一文字ずつ調べる。
-		if((suffixArray[i] + j) > mySpace.length)  { abort = true; break; }//文字数を超過していればbreak
                 if(myTarget[start+j] != mySpace[suffixArray[i]+j]) { abort = false; break; }//一文字でも一致していなければbreak
             }
             if(abort == false) { 
