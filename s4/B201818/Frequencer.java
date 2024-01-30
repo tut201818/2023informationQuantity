@@ -115,9 +115,9 @@ public class Frequencer implements FrequencerInterface {
 	if(suffixArray.length % 2 == 0){
 	    if(suffixArray.length==2){
 		if(suffixCompare(suffixArray[0],suffixArray[1]) == -1){//辞書順に入れ替え
-			x = suffixArray[0];
-			uffixArray[0] = suffixArray[1];
-			y = x;
+			int x = suffixArray[0];
+			suffixArray[0] = suffixArray[1];
+			suffixArray[1] = x;
 		}
 		return suffixArray;
 	    }
@@ -154,7 +154,7 @@ public class Frequencer implements FrequencerInterface {
 	}
 	if((bc < bLength)){
             for(int j = bc;j<bLength;j++){
-		ret[ac+i] = b[j];
+		ret[ac+j] = b[j];
 	    }
 	}
 
