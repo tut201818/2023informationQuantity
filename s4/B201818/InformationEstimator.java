@@ -8,7 +8,7 @@ public interface InformationEstimatorInterface{
     void setTarget(byte target[]); // set the data for computing the information quantities
     void setSpace(byte space[]); // set data for sample space to computer probability
     double estimation(); // It returns 0.0 when the target is not set or Target's length is zero;
-// It returns Double.MAX_VALUE, when the true value is infinite, or space is not set.
+// It returns Double.MAX_VALUE, when the true value is infinite.
 // The behavior is undefined, if the true value is finete but larger than Double.MAX_VALUE.
 // Note that this happens only when the space is unreasonably large. We will encounter other problem anyway.
 // Otherwise, estimation of information quantity, 
@@ -17,6 +17,8 @@ public interface InformationEstimatorInterface{
 
 public class InformationEstimator implements InformationEstimatorInterface{
     // Code to tet, *warning: This code condtains intentional problem*
+    boolean targetReady = false;
+    boolean spaceReady = false;
     byte [] myTarget; // data to compute its information quantity
     byte [] mySpace;  // Sample space to compute the probability
     FrequencerInterface myFrequencer;  // Object for counting frequency
@@ -34,15 +36,20 @@ public class InformationEstimator implements InformationEstimatorInterface{
 	return  - Math.log10((double) freq / (double) mySpace.length)/ Math.log10((double) 2.0);
     }
 
-    public void setTarget(byte [] target) { myTarget = target;}
+    public void setTarget(byte [] target) { myTarget = target; if(target.length>0) targetReady = true;}
     public void setSpace(byte []space) { 
 	myFrequencer = new Frequencer();
 	mySpace = space; myFrequencer.setSpace(space); 
+	spaceReady = true;
     }
 
     public double estimation(){
+	if(targetReady == false) return (double) 0.0;
+	if(spaceReady == false) return Double.MAX_VALUE;
 	boolean [] partition = new boolean[myTarget.length+1];
 	int np;
+
+
 	np = 1<<(myTarget.length-1);
 	// System.out.println("np="+np+" length="+myTarget.length);
 	double value = Double.MAX_VALUE; // value = mininimum of each "value1".
@@ -72,7 +79,13 @@ public class InformationEstimator implements InformationEstimatorInterface{
 		}
 		// System.out.print("("+start+","+end+")");
 		myFrequencer.setTarget(subBytes(myTarget, start, end));
-		value1 = value1 + iq(myFrequencer.frequency());
+		int freq = myFrequencer.frequency();
+		if(freq == 0) {
+		    value1 = Double.MAX_VALUE;
+		    break;
+		}
+		if(freq < 0) return (double) 0.0;
+		value1 = value1 + iq(freq);
 		start = end;
 	    }
 	    // System.out.println(" "+ value1);
@@ -101,8 +114,7 @@ public class InformationEstimator implements InformationEstimatorInterface{
 	value = myObject.estimation();
 	System.out.println(">00 "+value);
     }
-}
-				  
+}		  
 			       
 
 	
