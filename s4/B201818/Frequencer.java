@@ -52,7 +52,7 @@ public class Frequencer implements FrequencerInterface {
             suffixArray[i] = i;//suffixArrayの中身は0,1,2,3...space.length-1になる
             }
 	
-	    //マージソート(なぜか順番が逆になっている)
+	    //マージソート(なぜか並び順が逆になっている)
 	    suffixArray = msort(suffixArray);
 	    //順番を入れ替える用
             int a;
