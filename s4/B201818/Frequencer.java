@@ -122,14 +122,17 @@ public class Frequencer implements FrequencerInterface {
 		return suffixArray;
 	    }
             //a = msort(suffixArray.slice(0,(suffixArray.length / 2)));
-	    a = msort(slice(suffixArray,0,(suffixArray.length / 2)));
-            b = msort(suffixArray.slice(suffixArray.length / 2),suffixArray.length);
+	    //b = msort(suffixArray.slice(suffixArray.length / 2),suffixArray.length);
+	    a = msort(slice(suffixArray,0,(int)(suffixArray.length / 2)));
+            b = msort(slice(suffixArray,(int)(suffixArray.length / 2),suffixArray.length));
 	}else{
 	    if(suffixArray.length==1){
 		return suffixArray;
 	    }
-	    a = msort(suffixArray.slice(0,(suffixArray.length / 2)));
-            b = msort(suffixArray.slice(suffixArray.length / 2),suffixArray.length);
+	    //a = msort(suffixArray.slice(0,(suffixArray.length / 2)));
+            //b = msort(suffixArray.slice(suffixArray.length / 2),suffixArray.length);
+	    a = msort(slice(suffixArray,0,(int)(suffixArray.length / 2)));
+            b = msort(slice(suffixArray,(int)(suffixArray.length / 2),suffixArray.length));
 	}
 
 	//配列aとbを辞書順にマージしリターン
@@ -161,6 +164,14 @@ public class Frequencer implements FrequencerInterface {
 
 	return ret;
     }
+
+     private int[] slice(int[] suffixArray,int x,int y){
+	int[] array = new int[y-x];
+        for(int i=0;i<(y-x);i++){
+            array[i] = suffixArray[i+x];
+	}
+        return array;
+     }
 	
     private void showVariables() {
 	for(int i=0; i< mySpace.length; i++) { System.out.write(mySpace[i]); }
