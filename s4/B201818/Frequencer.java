@@ -56,9 +56,9 @@ public class Frequencer implements FrequencerInterface {
 
 	    int a;
             for(int i = 0;i<(int)(suffixArray.length/2);i++){
-                a = suffixArray[i]
-                suffixArray[i] = suffixArray[suffixArray.length-i]
-		suffixArray[suffixArray.length-i] = a
+                a = suffixArray[i];
+                suffixArray[i] = suffixArray[suffixArray.length-i];
+		suffixArray[suffixArray.length-i] = a;
 	    }
 
 		
