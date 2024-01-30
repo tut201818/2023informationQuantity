@@ -109,7 +109,7 @@ public class Frequencer implements FrequencerInterface {
 	return 0;
     }
 
-    private int[] msort(suffixArray){
+    private int[] msort(int[] suffixArray){
 	if(suffixArray.length % 2 == 0){
 	    if(suffixArray.length==2){
 		if(suffixCompare(suffixArray[0],suffixArray[1]) == -1){//辞書順に入れ替え
@@ -154,7 +154,7 @@ public class Frequencer implements FrequencerInterface {
 		ret[ac+i] = b[j];
 	}
 
-	return ret
+	return ret;
     }
 	
     private void showVariables() {
