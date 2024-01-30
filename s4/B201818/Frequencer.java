@@ -121,7 +121,8 @@ public class Frequencer implements FrequencerInterface {
 		}
 		return suffixArray;
 	    }
-            a = msort(suffixArray.slice(0,(suffixArray.length / 2)));
+            //a = msort(suffixArray.slice(0,(suffixArray.length / 2)));
+	    a = msort(slice(suffixArray,0,(suffixArray.length / 2)));
             b = msort(suffixArray.slice(suffixArray.length / 2),suffixArray.length);
 	}else{
 	    if(suffixArray.length==1){
