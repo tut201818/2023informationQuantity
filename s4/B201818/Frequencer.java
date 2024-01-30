@@ -148,10 +148,12 @@ public class Frequencer implements FrequencerInterface {
         if((ac < aLength)){
             for(int i = ac;i<aLength;i++){
 		ret[i+bc] = a[i];
+	    }
 	}
 	if((bc < bLength)){
             for(int j = bc;j<bLength;j++){
 		ret[ac+i] = b[j];
+	    }
 	}
 
 	return ret;
