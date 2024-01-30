@@ -54,12 +54,13 @@ public class Frequencer implements FrequencerInterface {
 	    //マージソート
 	    suffixArray = msort(suffixArray);
 
-	    int a;
+	    /*順番を入れ替える用
+            int a;
             for(int i = 0;i<(int)(suffixArray.length/2);i++){
                 a = suffixArray[i];
                 suffixArray[i] = suffixArray[suffixArray.length-i];
 		suffixArray[suffixArray.length-i] = a;
-	    }
+	    }*/
 
 		
 	    //辞書順になるようにバブルソート
