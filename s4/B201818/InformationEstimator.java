@@ -207,13 +207,10 @@ public class InformationEstimator implements InformationEstimatorInterface {
 
     @Override
     public void setSpace(byte[] space) {
-        
         mySpace = space;
-	if(mySpace.length > 0) {
-            spaceReady = true;
-            myFrequencer = new Frequencer();
-	    myFrequencer.setSpace(space);
-        }
+	myFrequencer = new Frequencer();
+	myFrequencer.setSpace(space);
+        spaceReady = true;
     }
 
     @Override
