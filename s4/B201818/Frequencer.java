@@ -110,6 +110,8 @@ public class Frequencer implements FrequencerInterface {
     }
 
     private int[] msort(int[] suffixArray){
+	int[] a;
+	int[] b;
 	if(suffixArray.length % 2 == 0){
 	    if(suffixArray.length==2){
 		if(suffixCompare(suffixArray[0],suffixArray[1]) == -1){//辞書順に入れ替え
@@ -119,14 +121,14 @@ public class Frequencer implements FrequencerInterface {
 		}
 		return suffixArray;
 	    }
-            int[] a = msort(suffixArray.slice(0,(suffixArray.length / 2)));
-            int[] b = msort(suffixArray.slice(suffixArray.length / 2),suffixArray.length);
+            a = msort(suffixArray.slice(0,(suffixArray.length / 2)));
+            b = msort(suffixArray.slice(suffixArray.length / 2),suffixArray.length);
 	}else{
 	    if(suffixArray.length==1){
 		return suffixArray;
 	    }
-	    int[] a = msort(suffixArray.slice(0,(suffixArray.length / 2)));
-            int[] b = msort(suffixArray.slice(suffixArray.length / 2),suffixArray.length);
+	    a = msort(suffixArray.slice(0,(suffixArray.length / 2)));
+            b = msort(suffixArray.slice(suffixArray.length / 2),suffixArray.length);
 	}
 
 	//配列aとbを辞書順にマージしリターン
