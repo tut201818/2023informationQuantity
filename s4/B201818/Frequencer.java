@@ -347,21 +347,12 @@ private int endSearch(int start, int end, int sStart, int sEnd,int n){
         // if target_start_end is "Ho ", it will return 6. 
 
 	//suffixArray[0]が一致する場合はここで判定する
-        if((suffixArray[0] + (end-start)) <= mySpace.length){//文字数を超過していれば
+        /*if((suffixArray[0] + (end-start)) <= mySpace.length){//文字数を超過していれば
             for(int j = 0; j<(end-start); j++) {//開始地点からターゲットと一致しているか一文字ずつ調べる。
-                if(myTarget[start+j] != mySpace[suffixArray[i] + j]) { braak; }//一文字でも一致していなければbreak
+                    if(myTarget[start+j] != mySpace[suffixArray[i] + j]){break;}//一文字でも一致していなければbreak
             	}
 		return 0;
-	}
-
-	//n文字目が一致する場所を探索
-	
-        int a = suffixSearch(start,end,0);
-
-
-
-
-
+	}*/
 	    
 	/*int i,j;
 	for (i = 0;i<mySpace.length;i++){
@@ -422,10 +413,6 @@ private int endSearch(int start, int end, int sStart, int sEnd,int n){
 	if(i == mySpace.length) return i;//ターゲット文字数が1かつ最後のアレイまで一致していてfor文を超過した場合
         return -1;
     }
-
-    
-
-
 
     public static void main(String[] args) {
         Frequencer myObject;
