@@ -244,7 +244,7 @@ public class Frequencer implements FrequencerInterface {
         return count;*/
 	int first = subByteStartIndex(s, e);//いくつ目のサフィックスアレイから一致しているか
 	if(first == -1) return 0;
-        int last1 = subByteEndIndex(s, e);//いくつ目のサフィックスアレイから不一致になるか
+        int last1 = subByteEndIndex(s, e, first);//いくつ目のサフィックスアレイから不一致になるか
         return last1 - first;
     }
 
@@ -282,7 +282,7 @@ public class Frequencer implements FrequencerInterface {
             for(j = 0; j<(end-start); j++) {//開始地点からターゲットと一致しているか一文字ずつ調べる。
                 if(myTarget[start+j] != mySpace[suffixArray[i] + j]) { abort = true; break; }//一文字でも一致していなければbreak
             	}
-            if(abort == false) { 
+            if(abort == false) {
 		return i;
 	    }//全文字一致だった時にカウント
 	  }
@@ -290,7 +290,7 @@ public class Frequencer implements FrequencerInterface {
         return -1;
     }
 
-    private int subByteEndIndex(int start, int end) {
+    private int subByteEndIndex(int start, int end, int first) {
         //suffix arrayのなかで、目的の文字列の出現しなくなる場所を求めるメソッド
         // 以下のように定義せよ。
         // The meaning of start and end is the same as subByteFrequency.
@@ -318,7 +318,7 @@ public class Frequencer implements FrequencerInterface {
         // if target_start_end is"i", it will return 9 for "Hi Ho Hi Ho".    
         //                                                                   
         //subByteStartIndexと同じ処理をする
-	int i,j;
+	/*int i,j;
 	for (i = 0;i<mySpace.length;i++){
 	    boolean abort = false;
             if((suffixArray[i] + (end-start)) <= mySpace.length){//文字数を超過していれば
@@ -329,10 +329,10 @@ public class Frequencer implements FrequencerInterface {
 		break;
 	    }//全文字一致だった時ブレーク
             }
-	}
+	}*/
 	    
 	//カウントが進んだ状態からスタート
-	for (i = i;i<mySpace.length;i++){
+	for (i = first;i<mySpace.length;i++){
 	    boolean abort = true;
             if((suffixArray[i] + (end-start)) > mySpace.length){return i;}//文字数を超過していれば
             for(j = 0; j<(end-start); j++) {//開始地点からターゲットと一致しているか一文字ずつ調べる。
