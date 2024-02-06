@@ -256,7 +256,7 @@ public class Frequencer implements FrequencerInterface {
 	    sEnd = endSearch(start,end,sStart,sEnd,n);
 	}
 
-        return (e - s);
+        return (sEnd - sStart);
 	    
     }
 
@@ -268,7 +268,8 @@ private int startSearch(int start, int end, int sStart, int sEnd,int n){
 	    }
 	return -1;//みつからなかったとき
 	}
-	
+
+	int center;
 	//領域の中心を決定
         if((sEnd-sStart)%2 == 0){
             int center = (sEnd-sStart)/2;
@@ -299,6 +300,7 @@ private int endSearch(int start, int end, int sStart, int sEnd,int n){
 	}
 	
 	//領域の中心を決定
+	int center;
         if((sEnd-sStart)%2 == 0){
             int center = (sEnd-sStart)/2;
 	}else{
