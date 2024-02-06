@@ -219,10 +219,10 @@ public class Frequencer implements FrequencerInterface {
 
     // I know that here is a potential problem in the declaration.
     @Override
-    public int subByteFrequency(int s, int e) {
-	if((s > myTarget.length-1) || (e > myTarget.length) || (s >= e)){//正しくない引数の場合はreturn -1
+    public int subByteFrequency(int start, int end) {
+	if((start > myTarget.length-1) || (end > myTarget.length) || (start >= end)){//正しくない引数の場合はreturn -1
         	return -1;
-	}//この辺の正しさの定義がよくわからない
+	}
 	/*int targetLength = myTarget.length;
 	int spaceLength = mySpace.length;
 	if(myTarget.length == 0){//ターゲットが不正な時にreturn -1
@@ -242,10 +242,78 @@ public class Frequencer implements FrequencerInterface {
         }
 	if(debugMode) { System.out.printf("%10d\n", count); }
         return count;*/
-	int first = subByteStartIndex(s, e);//いくつ目のサフィックスアレイから一致しているか
+	/*int first = subByteStartIndex(s, e);//いくつ目のサフィックスアレイから一致しているか
 	if(first == -1) return 0;
         int last1 = subByteEndIndex(s, e, first);//いくつ目のサフィックスアレイから不一致になるか
-        return last1 - first;
+        return last1 - first;*/
+
+        int sStart = 0;
+	int sEnd = mySpace.length;
+	for (int n = 0; n < (end - start); n++){
+            //n文字目が一致する場所を探索していく、だんだん領域が狭まっていく
+            sStart = startSearch(start,end,sStart,sEnd,n);
+	    if(sStart == -1){return 0;}
+	    sEnd = endSearch(start,end,sStart,sEnd,n);
+	}
+
+        return (e - s);
+	    
+    }
+
+private int startSearch(int start, int end, int sStart, int sEnd,int n){
+        if(sStart == 0 && sEnd == 1){
+	    //suffixArray[0]が一致する場合はここで判定する
+            if((suffixArray[0] + (end-start)) <= mySpace.length){//文字数を超過していなければ
+                 if(myTarget[n+start] == mySpace[suffixArray[0] + n]) { return 0;//一致ならstart位置は0 }
+	    }
+	return -1;//みつからなかったとき
+	}
+	
+	//領域の中心を決定
+        if((sEnd-sStart)%2 == 0){
+            int center = (sEnd-sStart)/2;
+	}else{
+            int center = ((sEnd-sStart)-1)/2;
+	}
+
+        //中心が、一致する一個前(startの位置)であるかを判定し、中心ならリターン、そうでなければ次の再帰へ
+	if((mySpace.length - suffixArray[center]) > n+start){
+	    if(myTarget[n+start] > mySpace[suffixArray[center]+n]){
+                if(mytarget[n+start] == mySpace[suffixArray[center+1]+n]){return center;}
+		return suffixSearch(start,end,center,sEnd,n);
+	    }
+	    if(myTarget[n] <= mySpace[suffixArray[center]+n]){
+                return suffixSearch(start,end,sStart,center,n);
+	    }
+	}
+    }
+
+private int endSearch(int start, int end, int sStart, int sEnd,int n){
+        if(sStart == 0 && sEnd == 1){
+	    //最後まで一致する場合はここで判定する
+            if((suffixArray[0] + (end-start)) <= mySpace.length){//文字数を超過していなければ
+                 if(myTarget[n+start] == mySpace[suffixArray[0] + n]) { return mySpace.length;//一致ならend位置は最後 }
+	    }
+	return mySpace.length-1;//不一致ならend位置は最後-1
+	}
+	
+	//領域の中心を決定
+        if((sEnd-sStart)%2 == 0){
+            int center = (sEnd-sStart)/2;
+	}else{
+            int center = ((sEnd-sStart)-1)/2;
+	}
+
+        //中心が、不一致する位置(endの位置)であるかを判定し、中心ならリターン、そうでなければ次の再帰へ
+	if((mySpace.length - suffixArray[center]) > n+start){
+	    if(myTarget[n+start] >= mySpace[suffixArray[center]+n]){
+                if(mytarget[n+start] != mySpace[suffixArray[center+1]+n]){return center;}
+		return suffixSearch(start,end,center,sEnd,n);
+	    }
+	    if(myTarget[n] < mySpace[suffixArray[center]+n]){
+                return suffixSearch(start,end,sStart,center,n);
+	    }
+	}
     }
 
     private int subByteStartIndex(int start, int end) {
@@ -275,7 +343,25 @@ public class Frequencer implements FrequencerInterface {
         // if target_start_end is "Ho", it will return 5.                           
         // Assuming the suffix array is created from "Hi Ho Hi Ho",                 
         // if target_start_end is "Ho ", it will return 6. 
-	int i,j;
+
+	//suffixArray[0]が一致する場合はここで判定する
+        if((suffixArray[0] + (end-start)) <= mySpace.length){//文字数を超過していれば
+            for(int j = 0; j<(end-start); j++) {//開始地点からターゲットと一致しているか一文字ずつ調べる。
+                if(myTarget[start+j] != mySpace[suffixArray[i] + j]) { braak; }//一文字でも一致していなければbreak
+            	}
+		return 0;
+	}
+
+	//n文字目が一致する場所を探索
+	
+        int a = suffixSearch(start,end,0);
+
+
+
+
+
+	    
+	/*int i,j;
 	for (i = 0;i<mySpace.length;i++){
 	    boolean abort = false;
             if((suffixArray[i] + (end-start)) <= mySpace.length){//文字数を超過していれば
@@ -286,7 +372,8 @@ public class Frequencer implements FrequencerInterface {
 		return i;
 	    }//全文字一致だった時にカウント
 	  }
-        }
+        }*/
+	    
         return -1;
     }
 
@@ -333,6 +420,10 @@ public class Frequencer implements FrequencerInterface {
 	if(i == mySpace.length) return i;//ターゲット文字数が1かつ最後のアレイまで一致していてfor文を超過した場合
         return -1;
     }
+
+    
+
+
 
     public static void main(String[] args) {
         Frequencer myObject;
