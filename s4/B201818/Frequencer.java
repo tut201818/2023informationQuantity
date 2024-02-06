@@ -152,7 +152,7 @@ public class Frequencer implements FrequencerInterface {
 	int bc = 0;
 
 	while((ac < aLength) && (bc < bLength)){
-	    if(suffixCompare(a[ac],b[bc]) == -1){
+	    if(suffixCompare(a[ac],b[bc]) == 1){//-1
                 ret[ac+bc] = b[bc];
 	        bc++;
 	    }else{
