@@ -249,7 +249,7 @@ public class Frequencer implements FrequencerInterface {
         return last1 - first;*/
 
         int sStart = 0;
-	int sEnd = mySpace.length;
+	int sEnd = mySpace.length;//suffixarray上の探す領域
 	for (int n = 0; n < (end - start); n++){
             //n文字目が一致する場所を探索していく、だんだん領域が狭まっていく
             sStart = startSearch(start,end,sStart,sEnd,n);
