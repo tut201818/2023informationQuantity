@@ -280,7 +280,7 @@ private int startSearch(int start, int end, int sStart, int sEnd,int n){
         //中心が、一致する一個前(startの位置)であるかを判定し、中心ならリターン、そうでなければ次の再帰へ
 	if((mySpace.length - suffixArray[center]) > n+start){
 	    if(myTarget[n+start] > mySpace[suffixArray[center]+n]){
-                if(mytarget[n+start] == mySpace[suffixArray[center+1]+n]){return center;}
+                if(myTarget[n+start] == mySpace[suffixArray[center+1]+n]){return center;}
 		return startSearch(start,end,center,sEnd,n);
 	    }
 	    if(myTarget[n] <= mySpace[suffixArray[center]+n]){
@@ -310,7 +310,7 @@ private int endSearch(int start, int end, int sStart, int sEnd,int n){
         //中心が、不一致する位置(endの位置)であるかを判定し、中心ならリターン、そうでなければ次の再帰へ
 	if((mySpace.length - suffixArray[center]) > n+start){
 	    if(myTarget[n+start] >= mySpace[suffixArray[center]+n]){
-                if(mytarget[n+start] != mySpace[suffixArray[center+1]+n]){return center;}
+                if(myTarget[n+start] != mySpace[suffixArray[center+1]+n]){return center;}
 		return endSearch(start,end,center,sEnd,n);
 	    }
 	    if(myTarget[n] < mySpace[suffixArray[center]+n]){
