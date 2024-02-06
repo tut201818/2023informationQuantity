@@ -319,7 +319,7 @@ private int endSearch(int start, int end, int sStart, int sEnd,int n){
 	    }
 	}
     }
-    return -l;
+    return -1;
 }
 
     private int subByteStartIndex(int start, int end) {
