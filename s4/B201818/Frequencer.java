@@ -317,19 +317,6 @@ public class Frequencer implements FrequencerInterface {
         // Assuming the suffix array is created from "Hi Ho Hi Ho",          
         // if target_start_end is"i", it will return 9 for "Hi Ho Hi Ho".    
         //                                                                   
-        //subByteStartIndexと同じ処理をする
-	/*int i,j;
-	for (i = 0;i<mySpace.length;i++){
-	    boolean abort = false;
-            if((suffixArray[i] + (end-start)) <= mySpace.length){//文字数を超過していれば
-            for(j = 0; j<(end-start); j++) {//開始地点からターゲットと一致しているか一文字ずつ調べる。
-                if(myTarget[start+j] != mySpace[suffixArray[i]+j]) { abort = true; break; }//一文字でも一致していなければbreak
-            }
-            if(abort == false) { 
-		break;
-	    }//全文字一致だった時ブレーク
-            }
-	}*/
 	    
 	//カウントが進んだ状態からスタート
 	int i,j;
