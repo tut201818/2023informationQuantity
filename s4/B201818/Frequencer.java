@@ -332,6 +332,7 @@ public class Frequencer implements FrequencerInterface {
 	}*/
 	    
 	//カウントが進んだ状態からスタート
+	int i;
 	for (i = first;i<mySpace.length;i++){
 	    boolean abort = true;
             if((suffixArray[i] + (end-start)) > mySpace.length){return i;}//文字数を超過していれば
