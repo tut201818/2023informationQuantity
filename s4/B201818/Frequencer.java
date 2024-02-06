@@ -287,6 +287,7 @@ private int startSearch(int start, int end, int sStart, int sEnd,int n){
 	    }
 	}
     }
+}
 
 private int endSearch(int start, int end, int sStart, int sEnd,int n){
         if(sStart == 0 && sEnd == 1){
@@ -315,6 +316,7 @@ private int endSearch(int start, int end, int sStart, int sEnd,int n){
 	    }
 	}
     }
+}
 
     private int subByteStartIndex(int start, int end) {
 	//suffix arrayのなかで、目的の文字列の出現が始まる位置を求めるメソッド
