@@ -242,6 +242,7 @@ public class Frequencer implements FrequencerInterface {
         }
 	if(debugMode) { System.out.printf("%10d\n", count); }
         return count;*/
+
 	/*int first = subByteStartIndex(s, e);//いくつ目のサフィックスアレイから一致しているか
 	if(first == -1) return 0;
         int last1 = subByteEndIndex(s, e, first);//いくつ目のサフィックスアレイから不一致になるか
@@ -322,7 +323,7 @@ private int endSearch(int start, int end, int sStart, int sEnd,int n){
     return -1;
 }
 
-    private int subByteStartIndex(int start, int end) {
+    /*private int subByteStartIndex(int start, int end) {
 	//suffix arrayのなかで、目的の文字列の出現が始まる位置を求めるメソッド
         // 以下のように定義せよ。
         // The meaning of start and end is the same as subByteFrequency.
@@ -349,14 +350,6 @@ private int endSearch(int start, int end, int sStart, int sEnd,int n){
         // if target_start_end is "Ho", it will return 5.                           
         // Assuming the suffix array is created from "Hi Ho Hi Ho",                 
         // if target_start_end is "Ho ", it will return 6. 
-
-	//suffixArray[0]が一致する場合はここで判定する
-        /*if((suffixArray[0] + (end-start)) <= mySpace.length){//文字数を超過していれば
-            for(int j = 0; j<(end-start); j++) {//開始地点からターゲットと一致しているか一文字ずつ調べる。
-                    if(myTarget[start+j] != mySpace[suffixArray[i] + j]){break;}//一文字でも一致していなければbreak
-            	}
-		return 0;
-	}*/
 	    
 	/*int i,j;
 	for (i = 0;i<mySpace.length;i++){
@@ -369,12 +362,12 @@ private int endSearch(int start, int end, int sStart, int sEnd,int n){
 		return i;
 	    }//全文字一致だった時にカウント
 	  }
-        }*/
+        }
 	    
         return -1;
-    }
+    }*/
 
-    private int subByteEndIndex(int start, int end, int first) {
+    /*private int subByteEndIndex(int start, int end, int first) {
         //suffix arrayのなかで、目的の文字列の出現しなくなる場所を求めるメソッド
         // 以下のように定義せよ。
         // The meaning of start and end is the same as subByteFrequency.
@@ -403,7 +396,7 @@ private int endSearch(int start, int end, int sStart, int sEnd,int n){
         //                                                                   
 	    
 	//カウントが進んだ状態からスタート
-	int i,j;
+	/*int i,j;
 	for (i = first;i<mySpace.length;i++){
 	    boolean abort = true;
             if((suffixArray[i] + (end-start)) > mySpace.length){return i;}//文字数を超過していれば
@@ -416,7 +409,7 @@ private int endSearch(int start, int end, int sStart, int sEnd,int n){
             }
 	if(i == mySpace.length) return i;//ターゲット文字数が1かつ最後のアレイまで一致していてfor文を超過した場合
         return -1;
-    }
+    }*/
 
     public static void main(String[] args) {
         Frequencer myObject;
