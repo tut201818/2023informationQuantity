@@ -243,9 +243,9 @@ public class Frequencer implements FrequencerInterface {
 	if(debugMode) { System.out.printf("%10d\n", count); }
         return count;*/
 
-	int first = subByteStartIndex(s, e);//いくつ目のサフィックスアレイから一致しているか
+	int first = subByteStartIndex(start, end);//いくつ目のサフィックスアレイから一致しているか
 	if(first == -1) return 0;
-        int last1 = subByteEndIndex(s, e, first);//いくつ目のサフィックスアレイから不一致になるか
+        int last1 = subByteEndIndex(start, end, first);//いくつ目のサフィックスアレイから不一致になるか
         return last1 - first;
 
         /*int sStart = 0;
